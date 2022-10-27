@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+  <script type="module" src="main.js"></script>  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+
+</head>
+ 
+<body>
+  <header>
+    <h1> Webpage Title </h1>
+  </header>
+    <div id="verifybox" class="box">
+        <h2>Welcome. To login read the below phrase.</h2>
+        <h3>"Hello let me in please"</h3>
+        <span id="start_recordingv" class="rec bi bi-mic "></span>
+        <span id="stop_recordingv" class="rec bi bi-record-btn hide"></span><br><br>
+        <h3>New to *APPLICATION NAME*?</h3>
+        <button id="register-new-user">Register new user</button>
+    </div>
+    <div id="recordbox" class="box hide">
+        <h2>Read the following phrase:</h2>
+        <h3 id="currPhrase">"Phrase for you to read"</h3>
+        <span id="start_recording" class="rec bi bi-mic "></span>
+        <span id="stop_recording" class="rec bi bi-record-btn hide"></span><br><br>
+
+        <!-- <span id="start_recordin" class="record-button bi bi-mic "></span>
+        <span id="stop_recording" class="record-button bi bi-record-btn  hide" ></span> -->
+        <audio id="audioPlay" controls></audio>
+        <br>
+        <button id="next_button" class="inactive">next</button>
+    </div>
+    <div id="newUser" class="box hide">
+        <h2>Your voice is being processed</h2>
+        <!-- <h3 id="currPhrase">"Phrase for you to read"</h3>
+        <span id="start_recording" class="rec bi bi-mic "></span>
+        <span id="stop_recording" class="rec bi bi-record-btn hide"></span><br><br> -->
+
+        <!-- <span id="start_recordin" class="record-button bi bi-mic "></span>
+        <span id="stop_recording" class="record-button bi bi-record-btn  hide" ></span> -->
+
+        <button id="backToMenu" >Back to the Menu</button>
+    </div>
+</body>
+ 
+</html>
