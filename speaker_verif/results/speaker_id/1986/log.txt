@@ -150,3 +150,1327 @@ Traceback (most recent call last):
   File "/usr/local/lib/python3.9/site-packages/torch/cuda/__init__.py", line 314, in set_device
     torch._C._cuda_setDevice(device)
 AttributeError: module 'torch._C' has no attribute '_cuda_setDevice'
+2022-11-01 13:43:46,035 - speechbrain.core - INFO - Beginning experiment!
+2022-11-01 13:43:46,036 - speechbrain.core - INFO - Experiment folder: ./results/speaker_id/1986
+2022-11-01 13:43:50,473 - speechbrain.utils.superpowers - DEBUG - anyio==3.6.2
+appdirs==1.4.4
+argon2-cffi==21.3.0
+argon2-cffi-bindings==21.2.0
+asttokens==2.1.0
+attrs==22.1.0
+backcall==0.2.0
+beautifulsoup4==4.11.1
+black==19.10b0
+bleach==5.0.1
+certifi==2022.9.24
+cffi==1.15.1
+cfgv==3.3.1
+charset-normalizer==2.1.1
+click==8.0.4
+contourpy==1.0.6
+cycler==0.11.0
+decorator==5.1.1
+defusedxml==0.7.1
+distlib==0.3.6
+entrypoints==0.3
+executing==1.2.0
+fastjsonschema==2.16.2
+filelock==3.8.0
+flake8==3.7.9
+fonttools==4.38.0
+huggingface-hub==0.10.1
+HyperPyYAML==1.0.1
+identify==2.5.8
+idna==3.4
+importlib-metadata==5.0.0
+importlib-resources==5.10.0
+ipykernel==5.5.3
+ipython==8.6.0
+ipython-genutils==0.2.0
+ipywidgets==8.0.2
+jedi==0.18.1
+Jinja2==3.1.2
+joblib==1.2.0
+jsonschema==4.16.0
+jupyter==1.0.0
+jupyter-client==7.4.4
+jupyter-console==6.4.4
+jupyter-core==4.11.2
+jupyter-server==1.21.0
+jupyterlab-pygments==0.2.2
+jupyterlab-widgets==3.0.3
+kiwisolver==1.4.4
+MarkupSafe==2.1.1
+matplotlib==3.6.1
+matplotlib-inline==0.1.2
+mccabe==0.6.1
+mistune==2.0.4
+more-itertools==9.0.0
+nbclassic==0.4.7
+nbclient==0.7.0
+nbconvert==7.2.3
+nbformat==5.7.0
+nest-asyncio==1.5.6
+nodeenv==1.7.0
+notebook==6.5.2
+notebook-shim==0.2.0
+numpy==1.23.4
+nvidia-cublas-cu11==11.10.3.66
+nvidia-cuda-nvrtc-cu11==11.7.99
+nvidia-cuda-runtime-cu11==11.7.99
+nvidia-cudnn-cu11==8.5.0.96
+packaging==21.3
+pandocfilters==1.5.0
+parso==0.8.3
+pathspec==0.10.1
+pexpect==4.8.0
+pickleshare==0.7.5
+Pillow==9.3.0
+pkgutil-resolve-name==1.3.10
+platformdirs==2.5.2
+pluggy==0.13.1
+pre-commit==2.20.0
+prometheus-client==0.15.0
+prompt-toolkit==3.0.31
+ptyprocess==0.7.0
+pure-eval==0.2.2
+py==1.11.0
+pycodestyle==2.5.0
+pycparser==2.21
+pyflakes==2.1.1
+Pygments==2.13.0
+pyparsing==3.0.9
+pyrsistent==0.19.1
+pytest==5.4.1
+python-dateutil==2.8.2
+PyYAML==6.0
+pyzmq==24.0.1
+qtconsole==5.3.2
+QtPy==2.2.1
+regex==2022.10.31
+requests==2.28.1
+ruamel.yaml==0.17.21
+ruamel.yaml.clib==0.2.7
+scipy==1.8.1
+Send2Trash==1.8.0
+sentencepiece==0.1.97
+six==1.16.0
+sniffio==1.3.0
+soupsieve==2.3.2.post1
+speechbrain==0.5.13
+stack-data==0.6.0
+terminado==0.17.0
+tinycss2==1.2.1
+toml==0.10.2
+torch==1.13.0
+torchaudio==0.13.0
+torchvision==0.14.0
+tornado==6.2
+tqdm==4.64.1
+traitlets==5.5.0
+typed-ast==1.5.4
+typing-extensions==4.4.0
+urllib3==1.26.12
+virtualenv==20.16.6
+wcwidth==0.2.5
+webencodings==0.5.1
+websocket-client==1.4.1
+widgetsnbextension==4.0.3
+yamllint==1.23.0
+zipp==3.10.0
+
+
+2022-11-01 13:43:50,746 - speechbrain.utils.superpowers - DEBUG - 5f81723b
+
+
+2022-11-01 13:43:50,756 - mini_librispeech_prepare - INFO - Preparation completed in previous run, skipping.
+2022-11-01 13:43:50,840 - speechbrain.dataio.encoder - DEBUG - Loaded categorical encoding from ./results/speaker_id/1986/save/label_encoder.txt
+2022-11-01 13:43:50,840 - speechbrain.dataio.encoder - INFO - Load called, but CategoricalEncoder is not empty. Loaded data will overwrite everything. This is normal if there is e.g. an unk label defined at init.
+2022-11-01 13:43:50,841 - speechbrain.dataio.encoder - DEBUG - Loaded categorical encoding from ./results/speaker_id/1986/save/label_encoder.txt
+2022-11-01 13:43:50,841 - speechbrain.core - INFO - Info: ckpt_interval_minutes arg from hparam file is used
+2022-11-01 13:43:50,867 - speechbrain.core - ERROR - Exception:
+Traceback (most recent call last):
+  File "train.py", line 315, in <module>
+    spk_id_brain = SpkIdBrain(
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/speechbrain/core.py", line 512, in __init__
+    torch.cuda.set_device(int(self.device[-1]))
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/torch/cuda/__init__.py", line 326, in set_device
+    torch._C._cuda_setDevice(device)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/torch/cuda/__init__.py", line 229, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: Found no NVIDIA driver on your system. Please check that you have an NVIDIA GPU and installed a driver from http://www.nvidia.com/Download/index.aspx
+2022-11-01 13:45:41,790 - speechbrain.core - INFO - Beginning experiment!
+2022-11-01 13:45:41,800 - speechbrain.core - INFO - Experiment folder: ./results/speaker_id/1986
+2022-11-01 13:45:47,217 - speechbrain.utils.superpowers - DEBUG - anyio==3.6.2
+appdirs==1.4.4
+argon2-cffi==21.3.0
+argon2-cffi-bindings==21.2.0
+asttokens==2.1.0
+attrs==22.1.0
+backcall==0.2.0
+beautifulsoup4==4.11.1
+black==19.10b0
+bleach==5.0.1
+certifi==2022.9.24
+cffi==1.15.1
+cfgv==3.3.1
+charset-normalizer==2.1.1
+click==8.0.4
+contourpy==1.0.6
+cycler==0.11.0
+decorator==5.1.1
+defusedxml==0.7.1
+distlib==0.3.6
+entrypoints==0.3
+executing==1.2.0
+fastjsonschema==2.16.2
+filelock==3.8.0
+flake8==3.7.9
+fonttools==4.38.0
+huggingface-hub==0.10.1
+HyperPyYAML==1.0.1
+identify==2.5.8
+idna==3.4
+importlib-metadata==5.0.0
+importlib-resources==5.10.0
+ipykernel==5.5.3
+ipython==8.6.0
+ipython-genutils==0.2.0
+ipywidgets==8.0.2
+jedi==0.18.1
+Jinja2==3.1.2
+joblib==1.2.0
+jsonschema==4.16.0
+jupyter==1.0.0
+jupyter-client==7.4.4
+jupyter-console==6.4.4
+jupyter-core==4.11.2
+jupyter-server==1.21.0
+jupyterlab-pygments==0.2.2
+jupyterlab-widgets==3.0.3
+kiwisolver==1.4.4
+MarkupSafe==2.1.1
+matplotlib==3.6.1
+matplotlib-inline==0.1.2
+mccabe==0.6.1
+mistune==2.0.4
+more-itertools==9.0.0
+nbclassic==0.4.7
+nbclient==0.7.0
+nbconvert==7.2.3
+nbformat==5.7.0
+nest-asyncio==1.5.6
+nodeenv==1.7.0
+notebook==6.5.2
+notebook-shim==0.2.0
+numpy==1.23.4
+nvidia-cublas-cu11==11.10.3.66
+nvidia-cuda-nvrtc-cu11==11.7.99
+nvidia-cuda-runtime-cu11==11.7.99
+nvidia-cudnn-cu11==8.5.0.96
+packaging==21.3
+pandocfilters==1.5.0
+parso==0.8.3
+pathspec==0.10.1
+pexpect==4.8.0
+pickleshare==0.7.5
+Pillow==9.3.0
+pkgutil-resolve-name==1.3.10
+platformdirs==2.5.2
+pluggy==0.13.1
+pre-commit==2.20.0
+prometheus-client==0.15.0
+prompt-toolkit==3.0.31
+ptyprocess==0.7.0
+pure-eval==0.2.2
+py==1.11.0
+pycodestyle==2.5.0
+pycparser==2.21
+pyflakes==2.1.1
+Pygments==2.13.0
+pyparsing==3.0.9
+pyrsistent==0.19.1
+pytest==5.4.1
+python-dateutil==2.8.2
+PyYAML==6.0
+pyzmq==24.0.1
+qtconsole==5.3.2
+QtPy==2.2.1
+regex==2022.10.31
+requests==2.28.1
+ruamel.yaml==0.17.21
+ruamel.yaml.clib==0.2.7
+scipy==1.8.1
+Send2Trash==1.8.0
+sentencepiece==0.1.97
+six==1.16.0
+sniffio==1.3.0
+soupsieve==2.3.2.post1
+speechbrain==0.5.13
+stack-data==0.6.0
+terminado==0.17.0
+tinycss2==1.2.1
+toml==0.10.2
+torch==1.13.0
+torchaudio==0.13.0
+torchvision==0.14.0
+tornado==6.2
+tqdm==4.64.1
+traitlets==5.5.0
+typed-ast==1.5.4
+typing-extensions==4.4.0
+urllib3==1.26.12
+virtualenv==20.16.6
+wcwidth==0.2.5
+webencodings==0.5.1
+websocket-client==1.4.1
+widgetsnbextension==4.0.3
+yamllint==1.23.0
+zipp==3.10.0
+
+
+2022-11-01 13:45:47,515 - speechbrain.utils.superpowers - DEBUG - 5f81723b
+
+
+2022-11-01 13:45:47,525 - mini_librispeech_prepare - INFO - Preparation completed in previous run, skipping.
+2022-11-01 13:45:47,713 - speechbrain.dataio.encoder - DEBUG - Loaded categorical encoding from ./results/speaker_id/1986/save/label_encoder.txt
+2022-11-01 13:45:47,713 - speechbrain.dataio.encoder - INFO - Load called, but CategoricalEncoder is not empty. Loaded data will overwrite everything. This is normal if there is e.g. an unk label defined at init.
+2022-11-01 13:45:47,714 - speechbrain.dataio.encoder - DEBUG - Loaded categorical encoding from ./results/speaker_id/1986/save/label_encoder.txt
+2022-11-01 13:45:47,715 - speechbrain.core - INFO - Info: ckpt_interval_minutes arg from hparam file is used
+2022-11-01 13:45:47,750 - speechbrain.core - ERROR - Exception:
+Traceback (most recent call last):
+  File "train.py", line 315, in <module>
+    spk_id_brain = SpkIdBrain(
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/speechbrain/core.py", line 512, in __init__
+    torch.cuda.set_device(int(self.device[-1]))
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/torch/cuda/__init__.py", line 326, in set_device
+    torch._C._cuda_setDevice(device)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/torch/cuda/__init__.py", line 229, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: Found no NVIDIA driver on your system. Please check that you have an NVIDIA GPU and installed a driver from http://www.nvidia.com/Download/index.aspx
+2022-11-01 13:46:13,098 - speechbrain.core - INFO - Beginning experiment!
+2022-11-01 13:46:13,107 - speechbrain.core - INFO - Experiment folder: ./results/speaker_id/1986
+2022-11-01 13:46:17,978 - speechbrain.utils.superpowers - DEBUG - anyio==3.6.2
+appdirs==1.4.4
+argon2-cffi==21.3.0
+argon2-cffi-bindings==21.2.0
+asttokens==2.1.0
+attrs==22.1.0
+backcall==0.2.0
+beautifulsoup4==4.11.1
+black==19.10b0
+bleach==5.0.1
+certifi==2022.9.24
+cffi==1.15.1
+cfgv==3.3.1
+charset-normalizer==2.1.1
+click==8.0.4
+contourpy==1.0.6
+cycler==0.11.0
+decorator==5.1.1
+defusedxml==0.7.1
+distlib==0.3.6
+entrypoints==0.3
+executing==1.2.0
+fastjsonschema==2.16.2
+filelock==3.8.0
+flake8==3.7.9
+fonttools==4.38.0
+huggingface-hub==0.10.1
+HyperPyYAML==1.0.1
+identify==2.5.8
+idna==3.4
+importlib-metadata==5.0.0
+importlib-resources==5.10.0
+ipykernel==5.5.3
+ipython==8.6.0
+ipython-genutils==0.2.0
+ipywidgets==8.0.2
+jedi==0.18.1
+Jinja2==3.1.2
+joblib==1.2.0
+jsonschema==4.16.0
+jupyter==1.0.0
+jupyter-client==7.4.4
+jupyter-console==6.4.4
+jupyter-core==4.11.2
+jupyter-server==1.21.0
+jupyterlab-pygments==0.2.2
+jupyterlab-widgets==3.0.3
+kiwisolver==1.4.4
+MarkupSafe==2.1.1
+matplotlib==3.6.1
+matplotlib-inline==0.1.2
+mccabe==0.6.1
+mistune==2.0.4
+more-itertools==9.0.0
+nbclassic==0.4.7
+nbclient==0.7.0
+nbconvert==7.2.3
+nbformat==5.7.0
+nest-asyncio==1.5.6
+nodeenv==1.7.0
+notebook==6.5.2
+notebook-shim==0.2.0
+numpy==1.23.4
+nvidia-cublas-cu11==11.10.3.66
+nvidia-cuda-nvrtc-cu11==11.7.99
+nvidia-cuda-runtime-cu11==11.7.99
+nvidia-cudnn-cu11==8.5.0.96
+packaging==21.3
+pandocfilters==1.5.0
+parso==0.8.3
+pathspec==0.10.1
+pexpect==4.8.0
+pickleshare==0.7.5
+Pillow==9.3.0
+pkgutil-resolve-name==1.3.10
+platformdirs==2.5.2
+pluggy==0.13.1
+pre-commit==2.20.0
+prometheus-client==0.15.0
+prompt-toolkit==3.0.31
+ptyprocess==0.7.0
+pure-eval==0.2.2
+py==1.11.0
+pycodestyle==2.5.0
+pycparser==2.21
+pyflakes==2.1.1
+Pygments==2.13.0
+pyparsing==3.0.9
+pyrsistent==0.19.1
+pytest==5.4.1
+python-dateutil==2.8.2
+PyYAML==6.0
+pyzmq==24.0.1
+qtconsole==5.3.2
+QtPy==2.2.1
+regex==2022.10.31
+requests==2.28.1
+ruamel.yaml==0.17.21
+ruamel.yaml.clib==0.2.7
+scipy==1.8.1
+Send2Trash==1.8.0
+sentencepiece==0.1.97
+six==1.16.0
+sniffio==1.3.0
+soupsieve==2.3.2.post1
+speechbrain==0.5.13
+stack-data==0.6.0
+terminado==0.17.0
+tinycss2==1.2.1
+toml==0.10.2
+torch==1.13.0
+torchaudio==0.13.0
+torchvision==0.14.0
+tornado==6.2
+tqdm==4.64.1
+traitlets==5.5.0
+typed-ast==1.5.4
+typing-extensions==4.4.0
+urllib3==1.26.12
+virtualenv==20.16.6
+wcwidth==0.2.5
+webencodings==0.5.1
+websocket-client==1.4.1
+widgetsnbextension==4.0.3
+yamllint==1.23.0
+zipp==3.10.0
+
+
+2022-11-01 13:46:18,466 - speechbrain.utils.superpowers - DEBUG - 5f81723b
+
+
+2022-11-01 13:46:18,483 - mini_librispeech_prepare - INFO - Preparation completed in previous run, skipping.
+2022-11-01 13:46:18,509 - speechbrain.dataio.encoder - DEBUG - Loaded categorical encoding from ./results/speaker_id/1986/save/label_encoder.txt
+2022-11-01 13:46:18,509 - speechbrain.dataio.encoder - INFO - Load called, but CategoricalEncoder is not empty. Loaded data will overwrite everything. This is normal if there is e.g. an unk label defined at init.
+2022-11-01 13:46:18,510 - speechbrain.dataio.encoder - DEBUG - Loaded categorical encoding from ./results/speaker_id/1986/save/label_encoder.txt
+2022-11-01 13:46:18,510 - speechbrain.core - INFO - Info: ckpt_interval_minutes arg from hparam file is used
+2022-11-01 13:46:18,535 - speechbrain.core - INFO - 4.5M trainable parameters in SpkIdBrain
+2022-11-01 13:46:18,540 - speechbrain.utils.checkpoints - INFO - Would load a checkpoint here, but none found yet.
+2022-11-01 13:46:18,541 - speechbrain.utils.epoch_loop - INFO - Going into epoch 1
+2022-11-01 13:46:18,591 - speechbrain.core - ERROR - Exception:
+Traceback (most recent call last):
+  File "train.py", line 327, in <module>
+    spk_id_brain.fit(
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/speechbrain/core.py", line 1153, in fit
+    self._fit_train(train_set=train_set, epoch=epoch, enable=enable)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/speechbrain/core.py", line 1004, in _fit_train
+    for batch in t:
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/tqdm/std.py", line 1195, in __iter__
+    for obj in iterable:
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 628, in __next__
+    data = self._next_data()
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 671, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 58, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 58, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/speechbrain/dataio/dataset.py", line 165, in __getitem__
+    return self.pipeline.compute_outputs({"id": data_id, **data_point})
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/speechbrain/utils/data_pipeline.py", line 464, in compute_outputs
+    return self._compute(data, self._exec_order, self.output_mapping)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/speechbrain/utils/data_pipeline.py", line 496, in _compute
+    values = item(*args)  # Call the DynamicItem to produce output
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/speechbrain/utils/data_pipeline.py", line 72, in __call__
+    return self.func(*args)
+  File "train.py", line 237, in audio_pipeline
+    sig = sb.dataio.dataio.read_audio(wav)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/speechbrain/dataio/dataio.py", line 200, in read_audio
+    audio, _ = torchaudio.load(waveforms_obj)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/torchaudio/backend/sox_io_backend.py", line 227, in load
+    return _fallback_load(filepath, frame_offset, num_frames, normalize, channels_first, format)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/torchaudio/backend/sox_io_backend.py", line 29, in _fail_load
+    raise RuntimeError("Failed to load audio from {}".format(filepath))
+RuntimeError: Failed to load audio from ./data/LibriSpeech/train-clean-5/3526/176653/3526-176653-0003.flac
+2022-11-01 13:49:06,823 - speechbrain.core - INFO - Beginning experiment!
+2022-11-01 13:49:06,833 - speechbrain.core - INFO - Experiment folder: ./results/speaker_id/1986
+2022-11-01 13:49:12,202 - speechbrain.utils.superpowers - DEBUG - anyio==3.6.2
+appdirs==1.4.4
+argon2-cffi==21.3.0
+argon2-cffi-bindings==21.2.0
+asttokens==2.1.0
+attrs==22.1.0
+backcall==0.2.0
+beautifulsoup4==4.11.1
+black==19.10b0
+bleach==5.0.1
+certifi==2022.9.24
+cffi==1.15.1
+cfgv==3.3.1
+charset-normalizer==2.1.1
+click==8.0.4
+contourpy==1.0.6
+cycler==0.11.0
+decorator==5.1.1
+defusedxml==0.7.1
+distlib==0.3.6
+entrypoints==0.3
+executing==1.2.0
+fastjsonschema==2.16.2
+filelock==3.8.0
+flake8==3.7.9
+fonttools==4.38.0
+huggingface-hub==0.10.1
+HyperPyYAML==1.0.1
+identify==2.5.8
+idna==3.4
+importlib-metadata==5.0.0
+importlib-resources==5.10.0
+ipykernel==5.5.3
+ipython==8.6.0
+ipython-genutils==0.2.0
+ipywidgets==8.0.2
+jedi==0.18.1
+Jinja2==3.1.2
+joblib==1.2.0
+jsonschema==4.16.0
+jupyter==1.0.0
+jupyter-client==7.4.4
+jupyter-console==6.4.4
+jupyter-core==4.11.2
+jupyter-server==1.21.0
+jupyterlab-pygments==0.2.2
+jupyterlab-widgets==3.0.3
+kiwisolver==1.4.4
+MarkupSafe==2.1.1
+matplotlib==3.6.1
+matplotlib-inline==0.1.2
+mccabe==0.6.1
+mistune==2.0.4
+more-itertools==9.0.0
+nbclassic==0.4.7
+nbclient==0.7.0
+nbconvert==7.2.3
+nbformat==5.7.0
+nest-asyncio==1.5.6
+nodeenv==1.7.0
+notebook==6.5.2
+notebook-shim==0.2.0
+numpy==1.23.4
+nvidia-cublas-cu11==11.10.3.66
+nvidia-cuda-nvrtc-cu11==11.7.99
+nvidia-cuda-runtime-cu11==11.7.99
+nvidia-cudnn-cu11==8.5.0.96
+packaging==21.3
+pandocfilters==1.5.0
+parso==0.8.3
+pathspec==0.10.1
+pexpect==4.8.0
+pickleshare==0.7.5
+Pillow==9.3.0
+pkgutil-resolve-name==1.3.10
+platformdirs==2.5.2
+pluggy==0.13.1
+pre-commit==2.20.0
+prometheus-client==0.15.0
+prompt-toolkit==3.0.31
+ptyprocess==0.7.0
+pure-eval==0.2.2
+py==1.11.0
+pycodestyle==2.5.0
+pycparser==2.21
+pyflakes==2.1.1
+Pygments==2.13.0
+pyparsing==3.0.9
+pyrsistent==0.19.1
+pytest==5.4.1
+python-dateutil==2.8.2
+PyYAML==6.0
+pyzmq==24.0.1
+qtconsole==5.3.2
+QtPy==2.2.1
+regex==2022.10.31
+requests==2.28.1
+ruamel.yaml==0.17.21
+ruamel.yaml.clib==0.2.7
+scipy==1.8.1
+Send2Trash==1.8.0
+sentencepiece==0.1.97
+six==1.16.0
+sniffio==1.3.0
+soupsieve==2.3.2.post1
+speechbrain==0.5.13
+stack-data==0.6.0
+terminado==0.17.0
+tinycss2==1.2.1
+toml==0.10.2
+torch==1.13.0
+torchaudio==0.13.0
+torchvision==0.14.0
+tornado==6.2
+tqdm==4.64.1
+traitlets==5.5.0
+typed-ast==1.5.4
+typing-extensions==4.4.0
+urllib3==1.26.12
+virtualenv==20.16.6
+wcwidth==0.2.5
+webencodings==0.5.1
+websocket-client==1.4.1
+widgetsnbextension==4.0.3
+yamllint==1.23.0
+zipp==3.10.0
+
+
+2022-11-01 13:49:12,503 - speechbrain.utils.superpowers - DEBUG - 5f81723b
+
+
+2022-11-01 13:49:12,510 - mini_librispeech_prepare - INFO - Preparation completed in previous run, skipping.
+2022-11-01 13:49:12,585 - speechbrain.dataio.encoder - DEBUG - Loaded categorical encoding from ./results/speaker_id/1986/save/label_encoder.txt
+2022-11-01 13:49:12,586 - speechbrain.dataio.encoder - INFO - Load called, but CategoricalEncoder is not empty. Loaded data will overwrite everything. This is normal if there is e.g. an unk label defined at init.
+2022-11-01 13:49:12,587 - speechbrain.dataio.encoder - DEBUG - Loaded categorical encoding from ./results/speaker_id/1986/save/label_encoder.txt
+2022-11-01 13:49:12,587 - speechbrain.core - INFO - Info: ckpt_interval_minutes arg from hparam file is used
+2022-11-01 13:49:12,618 - speechbrain.core - INFO - 4.5M trainable parameters in SpkIdBrain
+2022-11-01 13:49:12,628 - speechbrain.utils.checkpoints - INFO - Would load a checkpoint here, but none found yet.
+2022-11-01 13:49:12,629 - speechbrain.utils.epoch_loop - INFO - Going into epoch 1
+2022-11-01 13:49:12,868 - speechbrain.core - ERROR - Exception:
+Traceback (most recent call last):
+  File "train.py", line 327, in <module>
+    spk_id_brain.fit(
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/speechbrain/core.py", line 1153, in fit
+    self._fit_train(train_set=train_set, epoch=epoch, enable=enable)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/speechbrain/core.py", line 1004, in _fit_train
+    for batch in t:
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/tqdm/std.py", line 1195, in __iter__
+    for obj in iterable:
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 628, in __next__
+    data = self._next_data()
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 671, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 58, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/torch/utils/data/_utils/fetch.py", line 58, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/speechbrain/dataio/dataset.py", line 165, in __getitem__
+    return self.pipeline.compute_outputs({"id": data_id, **data_point})
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/speechbrain/utils/data_pipeline.py", line 464, in compute_outputs
+    return self._compute(data, self._exec_order, self.output_mapping)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/speechbrain/utils/data_pipeline.py", line 496, in _compute
+    values = item(*args)  # Call the DynamicItem to produce output
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/speechbrain/utils/data_pipeline.py", line 72, in __call__
+    return self.func(*args)
+  File "train.py", line 237, in audio_pipeline
+    sig = sb.dataio.dataio.read_audio(wav)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/speechbrain/dataio/dataio.py", line 200, in read_audio
+    audio, _ = torchaudio.load(waveforms_obj)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/torchaudio/backend/sox_io_backend.py", line 227, in load
+    return _fallback_load(filepath, frame_offset, num_frames, normalize, channels_first, format)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/torchaudio/backend/sox_io_backend.py", line 29, in _fail_load
+    raise RuntimeError("Failed to load audio from {}".format(filepath))
+RuntimeError: Failed to load audio from ./data/LibriSpeech/train-clean-5/3526/176653/3526-176653-0003.flac
+2022-11-01 13:50:29,724 - speechbrain.core - INFO - Beginning experiment!
+2022-11-01 13:50:29,734 - speechbrain.core - INFO - Experiment folder: ./results/speaker_id/1986
+2022-11-01 13:50:34,928 - speechbrain.utils.superpowers - DEBUG - anyio==3.6.2
+appdirs==1.4.4
+argon2-cffi==21.3.0
+argon2-cffi-bindings==21.2.0
+asttokens==2.1.0
+attrs==22.1.0
+backcall==0.2.0
+beautifulsoup4==4.11.1
+black==19.10b0
+bleach==5.0.1
+certifi==2022.9.24
+cffi==1.15.1
+cfgv==3.3.1
+charset-normalizer==2.1.1
+click==8.0.4
+contourpy==1.0.6
+cycler==0.11.0
+decorator==5.1.1
+defusedxml==0.7.1
+distlib==0.3.6
+entrypoints==0.3
+executing==1.2.0
+fastjsonschema==2.16.2
+filelock==3.8.0
+flake8==3.7.9
+fonttools==4.38.0
+huggingface-hub==0.10.1
+HyperPyYAML==1.0.1
+identify==2.5.8
+idna==3.4
+importlib-metadata==5.0.0
+importlib-resources==5.10.0
+ipykernel==5.5.3
+ipython==8.6.0
+ipython-genutils==0.2.0
+ipywidgets==8.0.2
+jedi==0.18.1
+Jinja2==3.1.2
+joblib==1.2.0
+jsonschema==4.16.0
+jupyter==1.0.0
+jupyter-client==7.4.4
+jupyter-console==6.4.4
+jupyter-core==4.11.2
+jupyter-server==1.21.0
+jupyterlab-pygments==0.2.2
+jupyterlab-widgets==3.0.3
+kiwisolver==1.4.4
+MarkupSafe==2.1.1
+matplotlib==3.6.1
+matplotlib-inline==0.1.2
+mccabe==0.6.1
+mistune==2.0.4
+more-itertools==9.0.0
+nbclassic==0.4.7
+nbclient==0.7.0
+nbconvert==7.2.3
+nbformat==5.7.0
+nest-asyncio==1.5.6
+nodeenv==1.7.0
+notebook==6.5.2
+notebook-shim==0.2.0
+numpy==1.23.4
+nvidia-cublas-cu11==11.10.3.66
+nvidia-cuda-nvrtc-cu11==11.7.99
+nvidia-cuda-runtime-cu11==11.7.99
+nvidia-cudnn-cu11==8.5.0.96
+packaging==21.3
+pandocfilters==1.5.0
+parso==0.8.3
+pathspec==0.10.1
+pexpect==4.8.0
+pickleshare==0.7.5
+Pillow==9.3.0
+pkgutil-resolve-name==1.3.10
+platformdirs==2.5.2
+pluggy==0.13.1
+pre-commit==2.20.0
+prometheus-client==0.15.0
+prompt-toolkit==3.0.31
+ptyprocess==0.7.0
+pure-eval==0.2.2
+py==1.11.0
+pycodestyle==2.5.0
+pycparser==2.21
+pyflakes==2.1.1
+Pygments==2.13.0
+pyparsing==3.0.9
+pyrsistent==0.19.1
+pytest==5.4.1
+python-dateutil==2.8.2
+PyYAML==6.0
+pyzmq==24.0.1
+qtconsole==5.3.2
+QtPy==2.2.1
+regex==2022.10.31
+requests==2.28.1
+ruamel.yaml==0.17.21
+ruamel.yaml.clib==0.2.7
+scipy==1.8.1
+Send2Trash==1.8.0
+sentencepiece==0.1.97
+six==1.16.0
+sniffio==1.3.0
+soupsieve==2.3.2.post1
+speechbrain==0.5.13
+stack-data==0.6.0
+terminado==0.17.0
+tinycss2==1.2.1
+toml==0.10.2
+torch==1.13.0
+torchaudio==0.13.0
+torchvision==0.14.0
+tornado==6.2
+tqdm==4.64.1
+traitlets==5.5.0
+typed-ast==1.5.4
+typing-extensions==4.4.0
+urllib3==1.26.12
+virtualenv==20.16.6
+wcwidth==0.2.5
+webencodings==0.5.1
+websocket-client==1.4.1
+widgetsnbextension==4.0.3
+yamllint==1.23.0
+zipp==3.10.0
+
+
+2022-11-01 13:50:35,569 - speechbrain.utils.superpowers - DEBUG - 5f81723b
+
+
+2022-11-01 13:50:35,587 - mini_librispeech_prepare - INFO - Preparation completed in previous run, skipping.
+2022-11-01 13:52:37,003 - mini_librispeech_prepare - INFO - Creating train.json, valid.json, and test.json
+2022-11-01 13:52:48,925 - mini_librispeech_prepare - INFO - train.json successfully created!
+2022-11-01 13:52:50,351 - mini_librispeech_prepare - INFO - valid.json successfully created!
+2022-11-01 13:52:51,726 - mini_librispeech_prepare - INFO - test.json successfully created!
+2022-11-01 13:52:51,744 - speechbrain.dataio.encoder - DEBUG - Loaded categorical encoding from ./results/speaker_id/1986/save/label_encoder.txt
+2022-11-01 13:52:51,744 - speechbrain.dataio.encoder - INFO - Load called, but CategoricalEncoder is not empty. Loaded data will overwrite everything. This is normal if there is e.g. an unk label defined at init.
+2022-11-01 13:52:51,746 - speechbrain.dataio.encoder - DEBUG - Loaded categorical encoding from ./results/speaker_id/1986/save/label_encoder.txt
+2022-11-01 13:52:51,746 - speechbrain.core - INFO - Info: ckpt_interval_minutes arg from hparam file is used
+2022-11-01 13:52:51,760 - speechbrain.core - INFO - 4.5M trainable parameters in SpkIdBrain
+2022-11-01 13:52:51,765 - speechbrain.utils.checkpoints - INFO - Would load a checkpoint here, but none found yet.
+2022-11-01 13:52:51,769 - speechbrain.utils.epoch_loop - INFO - Going into epoch 1
+2022-11-01 13:53:01,726 - speechbrain.core - ERROR - Exception:
+Traceback (most recent call last):
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/speaker_verif/custom_model.py", line 111, in forward
+    x = layer(x, lengths=lens)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1190, in _call_impl
+    return forward_call(*input, **kwargs)
+TypeError: forward() got an unexpected keyword argument 'lengths'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "train.py", line 327, in <module>
+    spk_id_brain.fit(
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/speechbrain/core.py", line 1153, in fit
+    self._fit_train(train_set=train_set, epoch=epoch, enable=enable)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/speechbrain/core.py", line 1009, in _fit_train
+    loss = self.fit_batch(batch)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/speechbrain/core.py", line 881, in fit_batch
+    outputs = self.compute_forward(batch, Stage.TRAIN)
+  File "train.py", line 61, in compute_forward
+    embeddings = self.modules.embedding_model(feats, lens)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1190, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/speaker_verif/custom_model.py", line 113, in forward
+    x = layer(x)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1190, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/speechbrain/nnet/CNN.py", line 420, in forward
+    x = self._manage_padding(
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/speechbrain/nnet/CNN.py", line 472, in _manage_padding
+    x = F.pad(x, padding, mode=self.padding_mode)
+KeyboardInterrupt
+2022-11-02 22:18:30,211 - speechbrain.core - INFO - Beginning experiment!
+2022-11-02 22:18:30,219 - speechbrain.core - INFO - Experiment folder: ./results/speaker_id/1986
+2022-11-02 22:18:34,259 - speechbrain.utils.superpowers - DEBUG - anyio==3.6.2
+appdirs==1.4.4
+argon2-cffi==21.3.0
+argon2-cffi-bindings==21.2.0
+asttokens==2.1.0
+attrs==22.1.0
+backcall==0.2.0
+beautifulsoup4==4.11.1
+black==19.10b0
+bleach==5.0.1
+certifi==2022.9.24
+cffi==1.15.1
+cfgv==3.3.1
+charset-normalizer==2.1.1
+click==8.0.4
+contourpy==1.0.6
+cycler==0.11.0
+decorator==5.1.1
+defusedxml==0.7.1
+distlib==0.3.6
+entrypoints==0.3
+executing==1.2.0
+fastjsonschema==2.16.2
+filelock==3.8.0
+flake8==3.7.9
+fonttools==4.38.0
+huggingface-hub==0.10.1
+HyperPyYAML==1.0.1
+identify==2.5.8
+idna==3.4
+importlib-metadata==5.0.0
+importlib-resources==5.10.0
+ipykernel==5.5.3
+ipython==8.6.0
+ipython-genutils==0.2.0
+ipywidgets==8.0.2
+jedi==0.18.1
+Jinja2==3.1.2
+joblib==1.2.0
+jsonschema==4.16.0
+jupyter==1.0.0
+jupyter-client==7.4.4
+jupyter-console==6.4.4
+jupyter-core==4.11.2
+jupyter-server==1.21.0
+jupyterlab-pygments==0.2.2
+jupyterlab-widgets==3.0.3
+kiwisolver==1.4.4
+MarkupSafe==2.1.1
+matplotlib==3.6.1
+matplotlib-inline==0.1.2
+mccabe==0.6.1
+mistune==2.0.4
+more-itertools==9.0.0
+nbclassic==0.4.7
+nbclient==0.7.0
+nbconvert==7.2.3
+nbformat==5.7.0
+nest-asyncio==1.5.6
+nodeenv==1.7.0
+notebook==6.5.2
+notebook-shim==0.2.0
+numpy==1.23.4
+nvidia-cublas-cu11==11.10.3.66
+nvidia-cuda-nvrtc-cu11==11.7.99
+nvidia-cuda-runtime-cu11==11.7.99
+nvidia-cudnn-cu11==8.5.0.96
+packaging==21.3
+pandocfilters==1.5.0
+parso==0.8.3
+pathspec==0.10.1
+pexpect==4.8.0
+pickleshare==0.7.5
+Pillow==9.3.0
+pkgutil-resolve-name==1.3.10
+platformdirs==2.5.2
+pluggy==0.13.1
+pre-commit==2.20.0
+prometheus-client==0.15.0
+prompt-toolkit==3.0.31
+ptyprocess==0.7.0
+pure-eval==0.2.2
+py==1.11.0
+pycodestyle==2.5.0
+pycparser==2.21
+pyflakes==2.1.1
+Pygments==2.13.0
+pyparsing==3.0.9
+pyrsistent==0.19.1
+pytest==5.4.1
+python-dateutil==2.8.2
+PyYAML==6.0
+pyzmq==24.0.1
+qtconsole==5.3.2
+QtPy==2.2.1
+regex==2022.10.31
+requests==2.28.1
+ruamel.yaml==0.17.21
+ruamel.yaml.clib==0.2.7
+scipy==1.8.1
+Send2Trash==1.8.0
+sentencepiece==0.1.97
+six==1.16.0
+sniffio==1.3.0
+soupsieve==2.3.2.post1
+speechbrain==0.5.13
+stack-data==0.6.0
+terminado==0.17.0
+tinycss2==1.2.1
+toml==0.10.2
+torch==1.13.0
+torchaudio==0.13.0
+torchvision==0.14.0
+tornado==6.2
+tqdm==4.64.1
+traitlets==5.5.0
+typed-ast==1.5.4
+typing-extensions==4.4.0
+urllib3==1.26.12
+virtualenv==20.16.6
+wcwidth==0.2.5
+webencodings==0.5.1
+websocket-client==1.4.1
+widgetsnbextension==4.0.3
+yamllint==1.23.0
+zipp==3.10.0
+
+
+2022-11-02 22:18:34,513 - speechbrain.utils.superpowers - DEBUG - 5f81723b
+
+
+2022-11-02 22:18:34,520 - mini_librispeech_prepare - INFO - Preparation completed in previous run, skipping.
+2022-11-02 22:18:34,522 - mini_librispeech_prepare - INFO - Creating train.json, valid.json, and test.json
+2022-11-02 22:18:35,859 - speechbrain.core - ERROR - Exception:
+Traceback (most recent call last):
+  File "train.py", line 300, in <module>
+    sb.utils.distributed.run_on_main(
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/speechbrain/utils/distributed.py", line 61, in run_on_main
+    func(*args, **kwargs)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/speaker_verif/mini_librispeech_prepare.py", line 79, in prepare_mini_librispeech
+    create_json(data_split["train"], save_json_train)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/speaker_verif/mini_librispeech_prepare.py", line 100, in create_json
+    signal = read_audio(wav_file)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/speechbrain/dataio/dataio.py", line 200, in read_audio
+    audio, _ = torchaudio.load(waveforms_obj)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/torchaudio/backend/sox_io_backend.py", line 222, in load
+    ret = torch.ops.torchaudio.sox_io_load_audio_file(
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/torch/_ops.py", line 442, in __call__
+    return self._op(*args, **kwargs or {})
+KeyboardInterrupt
+2022-11-02 22:19:28,122 - speechbrain.core - INFO - Beginning experiment!
+2022-11-02 22:19:28,130 - speechbrain.core - INFO - Experiment folder: ./results/speaker_id/1986
+2022-11-02 22:19:31,975 - speechbrain.utils.superpowers - DEBUG - anyio==3.6.2
+appdirs==1.4.4
+argon2-cffi==21.3.0
+argon2-cffi-bindings==21.2.0
+asttokens==2.1.0
+attrs==22.1.0
+backcall==0.2.0
+beautifulsoup4==4.11.1
+black==19.10b0
+bleach==5.0.1
+certifi==2022.9.24
+cffi==1.15.1
+cfgv==3.3.1
+charset-normalizer==2.1.1
+click==8.0.4
+contourpy==1.0.6
+cycler==0.11.0
+decorator==5.1.1
+defusedxml==0.7.1
+distlib==0.3.6
+entrypoints==0.3
+executing==1.2.0
+fastjsonschema==2.16.2
+filelock==3.8.0
+flake8==3.7.9
+fonttools==4.38.0
+huggingface-hub==0.10.1
+HyperPyYAML==1.0.1
+identify==2.5.8
+idna==3.4
+importlib-metadata==5.0.0
+importlib-resources==5.10.0
+ipykernel==5.5.3
+ipython==8.6.0
+ipython-genutils==0.2.0
+ipywidgets==8.0.2
+jedi==0.18.1
+Jinja2==3.1.2
+joblib==1.2.0
+jsonschema==4.16.0
+jupyter==1.0.0
+jupyter-client==7.4.4
+jupyter-console==6.4.4
+jupyter-core==4.11.2
+jupyter-server==1.21.0
+jupyterlab-pygments==0.2.2
+jupyterlab-widgets==3.0.3
+kiwisolver==1.4.4
+MarkupSafe==2.1.1
+matplotlib==3.6.1
+matplotlib-inline==0.1.2
+mccabe==0.6.1
+mistune==2.0.4
+more-itertools==9.0.0
+nbclassic==0.4.7
+nbclient==0.7.0
+nbconvert==7.2.3
+nbformat==5.7.0
+nest-asyncio==1.5.6
+nodeenv==1.7.0
+notebook==6.5.2
+notebook-shim==0.2.0
+numpy==1.23.4
+nvidia-cublas-cu11==11.10.3.66
+nvidia-cuda-nvrtc-cu11==11.7.99
+nvidia-cuda-runtime-cu11==11.7.99
+nvidia-cudnn-cu11==8.5.0.96
+packaging==21.3
+pandocfilters==1.5.0
+parso==0.8.3
+pathspec==0.10.1
+pexpect==4.8.0
+pickleshare==0.7.5
+Pillow==9.3.0
+pkgutil-resolve-name==1.3.10
+platformdirs==2.5.2
+pluggy==0.13.1
+pre-commit==2.20.0
+prometheus-client==0.15.0
+prompt-toolkit==3.0.31
+ptyprocess==0.7.0
+pure-eval==0.2.2
+py==1.11.0
+pycodestyle==2.5.0
+pycparser==2.21
+pyflakes==2.1.1
+Pygments==2.13.0
+pyparsing==3.0.9
+pyrsistent==0.19.1
+pytest==5.4.1
+python-dateutil==2.8.2
+PyYAML==6.0
+pyzmq==24.0.1
+qtconsole==5.3.2
+QtPy==2.2.1
+regex==2022.10.31
+requests==2.28.1
+ruamel.yaml==0.17.21
+ruamel.yaml.clib==0.2.7
+scipy==1.8.1
+Send2Trash==1.8.0
+sentencepiece==0.1.97
+six==1.16.0
+sniffio==1.3.0
+soupsieve==2.3.2.post1
+speechbrain==0.5.13
+stack-data==0.6.0
+terminado==0.17.0
+tinycss2==1.2.1
+toml==0.10.2
+torch==1.13.0
+torchaudio==0.13.0
+torchvision==0.14.0
+tornado==6.2
+tqdm==4.64.1
+traitlets==5.5.0
+typed-ast==1.5.4
+typing-extensions==4.4.0
+urllib3==1.26.12
+virtualenv==20.16.6
+wcwidth==0.2.5
+webencodings==0.5.1
+websocket-client==1.4.1
+widgetsnbextension==4.0.3
+yamllint==1.23.0
+zipp==3.10.0
+
+
+2022-11-02 22:19:32,220 - speechbrain.utils.superpowers - DEBUG - 5f81723b
+
+
+2022-11-02 22:19:32,229 - mini_librispeech_prepare - INFO - Preparation completed in previous run, skipping.
+2022-11-02 22:19:32,312 - speechbrain.dataio.encoder - DEBUG - Loaded categorical encoding from ./results/speaker_id/1986/save/label_encoder.txt
+2022-11-02 22:19:32,312 - speechbrain.dataio.encoder - INFO - Load called, but CategoricalEncoder is not empty. Loaded data will overwrite everything. This is normal if there is e.g. an unk label defined at init.
+2022-11-02 22:19:32,314 - speechbrain.dataio.encoder - DEBUG - Loaded categorical encoding from ./results/speaker_id/1986/save/label_encoder.txt
+2022-11-02 22:19:32,314 - speechbrain.core - INFO - Info: ckpt_interval_minutes arg from hparam file is used
+2022-11-02 22:19:32,323 - speechbrain.core - INFO - 4.5M trainable parameters in SpkIdBrain
+2022-11-02 22:19:32,327 - speechbrain.utils.checkpoints - INFO - Would load a checkpoint here, but none found yet.
+2022-11-02 22:19:32,328 - speechbrain.utils.epoch_loop - INFO - Going into epoch 1
+2022-11-02 22:35:27,163 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-02+22-35-26+00
+2022-11-02 22:50:39,562 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-02+22-50-39+00
+2022-11-02 22:50:39,610 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-02+22-35-26+00
+2022-11-02 23:07:43,649 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-02+23-07-43+00
+2022-11-02 23:07:43,716 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-02+22-50-39+00
+2022-11-02 23:24:19,560 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-02+23-24-19+00
+2022-11-02 23:24:19,623 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-02+23-07-43+00
+2022-11-02 23:40:59,956 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-02+23-40-59+00
+2022-11-02 23:41:00,075 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-02+23-24-19+00
+2022-11-02 23:56:08,792 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-02+23-56-08+00
+2022-11-02 23:56:08,895 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-02+23-40-59+00
+2022-11-03 00:11:28,880 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+00-11-28+00
+2022-11-03 00:11:28,945 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-02+23-56-08+00
+2022-11-03 00:27:22,769 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+00-27-22+00
+2022-11-03 00:27:22,844 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+00-11-28+00
+2022-11-03 00:37:13,301 - speechbrain.nnet.schedulers - INFO - Changing lr from 0.001 to 0.00094
+2022-11-03 00:37:13,325 - speechbrain.utils.train_logger - INFO - Epoch: 1, lr: 1.00e-03 - train loss: 1.76 - valid loss: 1.04, valid error: 3.84e-01
+2022-11-03 00:37:13,477 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+00-37-13+00
+2022-11-03 00:37:13,585 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+00-27-22+00
+2022-11-03 00:37:13,586 - speechbrain.utils.epoch_loop - INFO - Going into epoch 2
+2022-11-03 00:52:34,820 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+00-52-34+00
+2022-11-03 01:08:40,367 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+01-08-40+00
+2022-11-03 01:08:40,512 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+00-52-34+00
+2022-11-03 01:25:00,252 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+01-25-00+00
+2022-11-03 01:25:00,388 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+01-08-40+00
+2022-11-03 01:41:07,827 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+01-41-07+00
+2022-11-03 01:41:08,070 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+01-25-00+00
+2022-11-03 01:56:32,088 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+01-56-31+00
+2022-11-03 01:56:32,288 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+01-41-07+00
+2022-11-03 02:11:52,465 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+02-11-52+00
+2022-11-03 02:11:52,641 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+01-56-31+00
+2022-11-03 02:27:21,984 - speechbrain.nnet.schedulers - INFO - Changing lr from 0.00094 to 0.00087
+2022-11-03 02:27:21,995 - speechbrain.utils.train_logger - INFO - Epoch: 2, lr: 9.36e-04 - train loss: 9.12e-01 - valid loss: 3.11e-01, valid error: 8.61e-02
+2022-11-03 02:27:22,160 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+02-27-21+00
+2022-11-03 02:27:22,436 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+02-11-52+00
+2022-11-03 02:27:22,445 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+00-37-13+00
+2022-11-03 02:27:22,446 - speechbrain.utils.epoch_loop - INFO - Going into epoch 3
+2022-11-03 02:42:22,920 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+02-42-22+00
+2022-11-03 02:58:02,222 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+02-58-02+00
+2022-11-03 02:58:02,429 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+02-42-22+00
+2022-11-03 03:13:03,147 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+03-13-03+00
+2022-11-03 03:13:03,413 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+02-58-02+00
+2022-11-03 03:28:46,867 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+03-28-46+00
+2022-11-03 03:28:47,093 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+03-13-03+00
+2022-11-03 03:44:09,774 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+03-44-09+00
+2022-11-03 03:44:10,152 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+03-28-46+00
+2022-11-03 04:00:04,232 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+04-00-04+00
+2022-11-03 04:00:04,574 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+03-44-09+00
+2022-11-03 04:08:39,098 - speechbrain.nnet.schedulers - INFO - Changing lr from 0.00087 to 0.00081
+2022-11-03 04:08:39,110 - speechbrain.utils.train_logger - INFO - Epoch: 3, lr: 8.71e-04 - train loss: 6.30e-01 - valid loss: 5.14e-01, valid error: 1.59e-01
+2022-11-03 04:08:39,237 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+04-08-39+00
+2022-11-03 04:08:39,519 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+04-00-04+00
+2022-11-03 04:08:39,520 - speechbrain.utils.epoch_loop - INFO - Going into epoch 4
+2022-11-03 04:24:41,365 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+04-24-41+00
+2022-11-03 04:40:04,245 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+04-40-04+00
+2022-11-03 04:40:04,766 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+04-24-41+00
+2022-11-03 04:56:36,407 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+04-56-36+00
+2022-11-03 04:56:36,778 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+04-40-04+00
+2022-11-03 05:12:45,622 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+05-12-45+00
+2022-11-03 05:12:46,012 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+04-56-36+00
+2022-11-03 05:28:19,055 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+05-28-18+00
+2022-11-03 05:28:19,478 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+05-12-45+00
+2022-11-03 05:44:19,743 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+05-44-19+00
+2022-11-03 05:44:20,161 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+05-28-18+00
+2022-11-03 05:50:21,717 - speechbrain.nnet.schedulers - INFO - Changing lr from 0.00081 to 0.00074
+2022-11-03 05:50:21,732 - speechbrain.utils.train_logger - INFO - Epoch: 4, lr: 8.07e-04 - train loss: 5.07e-01 - valid loss: 7.01e-02, valid error: 1.32e-02
+2022-11-03 05:50:21,862 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+05-50-21+00
+2022-11-03 05:50:22,400 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+05-44-19+00
+2022-11-03 05:50:22,408 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+02-27-21+00
+2022-11-03 05:50:22,415 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+04-08-39+00
+2022-11-03 05:50:22,416 - speechbrain.utils.epoch_loop - INFO - Going into epoch 5
+2022-11-03 06:06:32,557 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+06-06-32+00
+2022-11-03 06:22:35,068 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+06-22-34+00
+2022-11-03 06:22:35,399 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+06-06-32+00
+2022-11-03 06:37:53,645 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+06-37-53+00
+2022-11-03 06:37:54,031 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+06-22-34+00
+2022-11-03 06:53:33,446 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+06-53-33+00
+2022-11-03 06:53:33,803 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+06-37-53+00
+2022-11-03 07:09:09,066 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+07-09-08+00
+2022-11-03 07:09:09,728 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+06-53-33+00
+2022-11-03 07:24:47,370 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+07-24-47+00
+2022-11-03 07:24:47,755 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+07-09-08+00
+2022-11-03 07:30:51,488 - speechbrain.nnet.schedulers - INFO - Changing lr from 0.00074 to 0.00068
+2022-11-03 07:30:51,507 - speechbrain.utils.train_logger - INFO - Epoch: 5, lr: 7.43e-04 - train loss: 4.26e-01 - valid loss: 2.39e-01, valid error: 6.62e-02
+2022-11-03 07:30:51,643 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+07-30-51+00
+2022-11-03 07:30:52,104 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+07-24-47+00
+2022-11-03 07:30:52,105 - speechbrain.utils.epoch_loop - INFO - Going into epoch 6
+2022-11-03 07:46:47,552 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+07-46-47+00
+2022-11-03 08:02:52,076 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+08-02-51+00
+2022-11-03 08:02:52,928 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+07-46-47+00
+2022-11-03 08:18:40,669 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+08-18-40+00
+2022-11-03 08:18:41,261 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+08-02-51+00
+2022-11-03 08:34:32,721 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+08-34-32+00
+2022-11-03 08:34:33,312 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+08-18-40+00
+2022-11-03 08:49:49,080 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+08-49-48+00
+2022-11-03 08:49:49,671 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+08-34-32+00
+2022-11-03 09:05:34,987 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+09-05-34+00
+2022-11-03 09:05:35,600 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+08-49-48+00
+2022-11-03 09:11:41,610 - speechbrain.nnet.schedulers - INFO - Changing lr from 0.00068 to 0.00061
+2022-11-03 09:11:41,623 - speechbrain.utils.train_logger - INFO - Epoch: 6, lr: 6.79e-04 - train loss: 3.65e-01 - valid loss: 5.41e-02, valid error: 6.62e-03
+2022-11-03 09:11:41,746 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+09-11-41+00
+2022-11-03 09:11:42,432 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+05-50-21+00
+2022-11-03 09:11:42,438 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+07-30-51+00
+2022-11-03 09:11:42,451 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+09-05-34+00
+2022-11-03 09:11:42,451 - speechbrain.utils.epoch_loop - INFO - Going into epoch 7
+2022-11-03 09:27:47,359 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+09-27-47+00
+2022-11-03 09:43:40,070 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+09-43-39+00
+2022-11-03 09:43:40,579 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+09-27-47+00
+2022-11-03 09:59:21,985 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+09-59-21+00
+2022-11-03 09:59:22,509 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+09-43-39+00
+2022-11-03 10:15:26,252 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+10-15-26+00
+2022-11-03 10:15:26,859 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+09-59-21+00
+2022-11-03 10:31:06,310 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+10-31-06+00
+2022-11-03 10:31:06,842 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+10-15-26+00
+2022-11-03 10:46:44,875 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+10-46-44+00
+2022-11-03 10:46:45,430 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+10-31-06+00
+2022-11-03 10:52:56,571 - speechbrain.nnet.schedulers - INFO - Changing lr from 0.00061 to 0.00055
+2022-11-03 10:52:56,586 - speechbrain.utils.train_logger - INFO - Epoch: 7, lr: 6.14e-04 - train loss: 3.20e-01 - valid loss: 8.88e-02, valid error: 1.99e-02
+2022-11-03 10:52:56,714 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+10-52-56+00
+2022-11-03 10:52:57,322 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+10-46-44+00
+2022-11-03 10:52:57,322 - speechbrain.utils.epoch_loop - INFO - Going into epoch 8
+2022-11-03 11:08:22,531 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+11-08-22+00
+2022-11-03 11:23:25,923 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+11-23-25+00
+2022-11-03 11:23:26,670 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+11-08-22+00
+2022-11-03 11:39:17,876 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+11-39-17+00
+2022-11-03 11:39:18,640 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+11-23-25+00
+2022-11-03 11:55:28,821 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+11-55-28+00
+2022-11-03 11:55:29,650 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+11-39-17+00
+2022-11-03 12:11:14,550 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+12-11-14+00
+2022-11-03 12:11:16,400 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+11-55-28+00
+2022-11-03 12:26:55,078 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+12-26-54+00
+2022-11-03 12:26:55,928 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+12-11-14+00
+2022-11-03 12:36:50,390 - speechbrain.nnet.schedulers - INFO - Changing lr from 0.00055 to 0.00049
+2022-11-03 12:36:50,409 - speechbrain.utils.train_logger - INFO - Epoch: 8, lr: 5.50e-04 - train loss: 2.66e-01 - valid loss: 2.95e-02, valid error: 6.62e-03
+2022-11-03 12:36:50,540 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+12-36-50+00
+2022-11-03 12:36:51,425 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+10-52-56+00
+2022-11-03 12:36:51,432 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+09-11-41+00
+2022-11-03 12:36:51,450 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+12-26-54+00
+2022-11-03 12:36:51,451 - speechbrain.utils.epoch_loop - INFO - Going into epoch 9
+2022-11-03 12:52:47,043 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+12-52-46+00
+2022-11-03 13:09:25,649 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+13-09-25+00
+2022-11-03 13:09:27,456 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+12-52-46+00
+2022-11-03 13:25:54,429 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+13-25-54+00
+2022-11-03 13:25:55,785 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+13-09-25+00
+2022-11-03 13:42:19,658 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+13-42-19+00
+2022-11-03 13:42:20,563 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+13-25-54+00
+2022-11-03 13:58:10,857 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+13-58-10+00
+2022-11-03 13:58:11,737 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+13-42-19+00
+2022-11-03 14:15:12,859 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+14-14-43+00
+2022-11-03 14:15:15,044 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+13-58-10+00
+2022-11-03 15:06:16,934 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+15-06-16+00
+2022-11-03 15:06:19,423 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+14-14-43+00
+2022-11-03 15:21:24,296 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+15-21-23+00
+2022-11-03 15:21:27,060 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+15-06-16+00
+2022-11-03 15:37:11,443 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+15-37-11+00
+2022-11-03 15:37:13,977 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+15-21-23+00
+2022-11-03 15:53:57,874 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+15-53-57+00
+2022-11-03 15:53:59,761 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+15-37-11+00
+2022-11-03 16:09:45,987 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+16-09-45+00
+2022-11-03 16:09:48,061 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+15-53-57+00
+2022-11-03 16:26:27,665 - speechbrain.utils.checkpoints - DEBUG - Saved an intra-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+16-26-27+00
+2022-11-03 16:26:28,820 - speechbrain.utils.checkpoints - DEBUG - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+16-09-45+00
+2022-11-03 16:34:31,294 - speechbrain.nnet.schedulers - INFO - Changing lr from 0.00049 to 0.00042
+2022-11-03 16:34:31,307 - speechbrain.utils.train_logger - INFO - Epoch: 9, lr: 4.86e-04 - train loss: 2.12e-01 - valid loss: 2.31e-02, valid error: 0.00e+00
+2022-11-03 16:34:31,486 - speechbrain.utils.checkpoints - INFO - Saved an end-of-epoch checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+16-34-31+00
+2022-11-03 16:34:32,822 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+16-26-27+00
+2022-11-03 16:34:32,831 - speechbrain.utils.checkpoints - INFO - Deleted checkpoint in results/speaker_id/1986/save/CKPT+2022-11-03+12-36-50+00
+2022-11-03 16:34:32,831 - speechbrain.utils.epoch_loop - INFO - Going into epoch 10
+2022-11-03 16:34:35,993 - speechbrain.core - ERROR - Exception:
+Traceback (most recent call last):
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/speaker_verif/custom_model.py", line 111, in forward
+    x = layer(x, lengths=lens)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1190, in _call_impl
+    return forward_call(*input, **kwargs)
+TypeError: forward() got an unexpected keyword argument 'lengths'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "train.py", line 327, in <module>
+    epoch_counter=spk_id_brain.hparams.epoch_counter,
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/speechbrain/core.py", line 1153, in fit
+    self._fit_train(train_set=train_set, epoch=epoch, enable=enable)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/speechbrain/core.py", line 1009, in _fit_train
+    loss = self.fit_batch(batch)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/speechbrain/core.py", line 881, in fit_batch
+    outputs = self.compute_forward(batch, Stage.TRAIN)
+  File "train.py", line 61, in compute_forward
+    embeddings = self.modules.embedding_model(feats, lens)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1190, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/speaker_verif/custom_model.py", line 113, in forward
+    x = layer(x)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1190, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/speechbrain/nnet/CNN.py", line 437, in forward
+    wx = self.conv(x)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1190, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 313, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 309, in _conv_forward
+    return F.conv1d(input, weight, bias, self.stride,
+KeyboardInterrupt

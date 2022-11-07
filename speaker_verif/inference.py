@@ -5,17 +5,10 @@ file1 = './data/LibriSpeech/train-clean-5/19/198/19-198-0000.flac'
 file2 = './data/LibriSpeech/train-clean-5/32/21631/32-21631-0003.flac'
 file3 = './data/LibriSpeech/train-clean-5/19/198/19-198-0002.flac'
 
-score, prediction = verification.verify_files(file1, file3)
+score, prediction = verification.verify_files(file1, file2)
 
 print(score)
 print(prediction) # True = same speaker, False=Different speakers
-
-
-
-
-
-
-
 
 # import torch
 # import tqdm
