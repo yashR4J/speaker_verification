@@ -1474,3 +1474,1124 @@ Traceback (most recent call last):
   File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.8/site-packages/torch/nn/modules/conv.py", line 309, in _conv_forward
     return F.conv1d(input, weight, bias, self.stride,
 KeyboardInterrupt
+2022-11-07 13:29:20,403 - speechbrain.core - INFO - Beginning experiment!
+2022-11-07 13:29:20,404 - speechbrain.core - INFO - Experiment folder: ./results/speaker_id/1986
+2022-11-07 13:29:36,203 - speechbrain.utils.superpowers - DEBUG - anyio==3.6.2
+appdirs==1.4.4
+argon2-cffi==21.3.0
+argon2-cffi-bindings==21.2.0
+asttokens==2.1.0
+attrs==22.1.0
+backcall==0.2.0
+beautifulsoup4==4.11.1
+black==19.10b0
+bleach==5.0.1
+certifi==2022.9.24
+cffi==1.15.1
+cfgv==3.3.1
+charset-normalizer==2.1.1
+click==8.0.4
+contourpy==1.0.6
+cycler==0.11.0
+decorator==5.1.1
+defusedxml==0.7.1
+distlib==0.3.6
+entrypoints==0.3
+executing==1.2.0
+fastjsonschema==2.16.2
+filelock==3.8.0
+flake8==3.7.9
+fonttools==4.38.0
+huggingface-hub==0.10.1
+HyperPyYAML==1.0.1
+identify==2.5.8
+idna==3.4
+ipykernel==5.5.3
+ipython==8.6.0
+ipython-genutils==0.2.0
+ipywidgets==8.0.2
+jedi==0.18.1
+Jinja2==3.1.2
+joblib==1.2.0
+jsonschema==4.17.0
+jupyter==1.0.0
+jupyter-console==6.4.4
+jupyter-server==1.21.0
+jupyter_client==7.4.4
+jupyter_core==4.11.2
+jupyterlab-pygments==0.2.2
+jupyterlab-widgets==3.0.3
+kiwisolver==1.4.4
+MarkupSafe==2.1.1
+matplotlib==3.6.1
+matplotlib-inline==0.1.2
+mccabe==0.6.1
+mistune==2.0.4
+more-itertools==9.0.0
+nbclassic==0.4.8
+nbclient==0.7.0
+nbconvert==7.2.3
+nbformat==5.7.0
+nest-asyncio==1.5.6
+nodeenv==1.7.0
+notebook==6.5.2
+notebook_shim==0.2.2
+numpy==1.23.4
+nvidia-cublas-cu11==11.10.3.66
+nvidia-cuda-nvrtc-cu11==11.7.99
+nvidia-cuda-runtime-cu11==11.7.99
+nvidia-cudnn-cu11==8.5.0.96
+packaging==21.3
+pandocfilters==1.5.0
+parso==0.8.3
+pathspec==0.10.1
+pexpect==4.8.0
+pickleshare==0.7.5
+Pillow==9.3.0
+platformdirs==2.5.2
+pluggy==0.13.1
+pre-commit==2.20.0
+prometheus-client==0.15.0
+prompt-toolkit==3.0.32
+ptyprocess==0.7.0
+pure-eval==0.2.2
+py==1.11.0
+pycodestyle==2.5.0
+pycparser==2.21
+pyflakes==2.1.1
+Pygments==2.13.0
+pyparsing==3.0.9
+pyrsistent==0.19.2
+pytest==5.4.1
+python-dateutil==2.8.2
+PyYAML==6.0
+pyzmq==24.0.1
+qtconsole==5.4.0
+QtPy==2.2.1
+regex==2022.10.31
+requests==2.28.1
+ruamel.yaml==0.17.21
+ruamel.yaml.clib==0.2.7
+scipy==1.8.1
+Send2Trash==1.8.0
+sentencepiece==0.1.97
+six==1.16.0
+sniffio==1.3.0
+soupsieve==2.3.2.post1
+speechbrain==0.5.13
+stack-data==0.6.0
+terminado==0.17.0
+tinycss2==1.2.1
+toml==0.10.2
+torch==1.13.0
+torchaudio==0.13.0
+torchvision==0.14.0
+tornado==6.2
+tqdm==4.64.1
+traitlets==5.5.0
+typed-ast==1.5.4
+typing_extensions==4.4.0
+urllib3==1.26.12
+virtualenv==20.16.6
+wcwidth==0.2.5
+webencodings==0.5.1
+websocket-client==1.4.1
+widgetsnbextension==4.0.3
+yamllint==1.23.0
+
+
+2022-11-07 13:29:36,301 - speechbrain.utils.superpowers - DEBUG - 49b86da2
+
+
+2022-11-07 13:29:36,332 - user_data_prepare - INFO - Creating train.json, valid.json, and test.json
+2022-11-07 13:29:36,560 - mini_librispeech_prepare - INFO - train.json successfully created!
+2022-11-07 13:29:36,569 - mini_librispeech_prepare - INFO - valid.json successfully created!
+2022-11-07 13:29:36,678 - mini_librispeech_prepare - INFO - test.json successfully created!
+2022-11-07 13:29:36,691 - speechbrain.core - ERROR - Exception:
+Traceback (most recent call last):
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/speaker_verif/custom_train.py", line 44, in <module>
+    datasets = dataio_prep(hparams)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/speaker_verif/train.py", line 258, in dataio_prep
+    datasets[dataset] = sb.dataio.dataset.DynamicItemDataset.from_json(
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/speechbrain/dataio/dataset.py", line 358, in from_json
+    return cls(data, dynamic_items, output_keys)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/speechbrain/dataio/dataset.py", line 151, in __init__
+    static_keys = list(self.data[self.data_ids[0]].keys())
+IndexError: list index out of range
+2022-11-07 13:34:26,652 - speechbrain.core - INFO - Beginning experiment!
+2022-11-07 13:34:26,653 - speechbrain.core - INFO - Experiment folder: ./results/speaker_id/1986
+2022-11-07 13:34:36,444 - speechbrain.utils.superpowers - DEBUG - anyio==3.6.2
+appdirs==1.4.4
+argon2-cffi==21.3.0
+argon2-cffi-bindings==21.2.0
+asttokens==2.1.0
+attrs==22.1.0
+backcall==0.2.0
+beautifulsoup4==4.11.1
+black==19.10b0
+bleach==5.0.1
+certifi==2022.9.24
+cffi==1.15.1
+cfgv==3.3.1
+charset-normalizer==2.1.1
+click==8.0.4
+contourpy==1.0.6
+cycler==0.11.0
+decorator==5.1.1
+defusedxml==0.7.1
+distlib==0.3.6
+entrypoints==0.3
+executing==1.2.0
+fastjsonschema==2.16.2
+filelock==3.8.0
+flake8==3.7.9
+fonttools==4.38.0
+huggingface-hub==0.10.1
+HyperPyYAML==1.0.1
+identify==2.5.8
+idna==3.4
+ipykernel==5.5.3
+ipython==8.6.0
+ipython-genutils==0.2.0
+ipywidgets==8.0.2
+jedi==0.18.1
+Jinja2==3.1.2
+joblib==1.2.0
+jsonschema==4.17.0
+jupyter==1.0.0
+jupyter-console==6.4.4
+jupyter-server==1.21.0
+jupyter_client==7.4.4
+jupyter_core==4.11.2
+jupyterlab-pygments==0.2.2
+jupyterlab-widgets==3.0.3
+kiwisolver==1.4.4
+MarkupSafe==2.1.1
+matplotlib==3.6.1
+matplotlib-inline==0.1.2
+mccabe==0.6.1
+mistune==2.0.4
+more-itertools==9.0.0
+nbclassic==0.4.8
+nbclient==0.7.0
+nbconvert==7.2.3
+nbformat==5.7.0
+nest-asyncio==1.5.6
+nodeenv==1.7.0
+notebook==6.5.2
+notebook_shim==0.2.2
+numpy==1.23.4
+nvidia-cublas-cu11==11.10.3.66
+nvidia-cuda-nvrtc-cu11==11.7.99
+nvidia-cuda-runtime-cu11==11.7.99
+nvidia-cudnn-cu11==8.5.0.96
+packaging==21.3
+pandocfilters==1.5.0
+parso==0.8.3
+pathspec==0.10.1
+pexpect==4.8.0
+pickleshare==0.7.5
+Pillow==9.3.0
+platformdirs==2.5.2
+pluggy==0.13.1
+pre-commit==2.20.0
+prometheus-client==0.15.0
+prompt-toolkit==3.0.32
+ptyprocess==0.7.0
+pure-eval==0.2.2
+py==1.11.0
+pycodestyle==2.5.0
+pycparser==2.21
+pyflakes==2.1.1
+Pygments==2.13.0
+pyparsing==3.0.9
+pyrsistent==0.19.2
+pytest==5.4.1
+python-dateutil==2.8.2
+PyYAML==6.0
+pyzmq==24.0.1
+qtconsole==5.4.0
+QtPy==2.2.1
+regex==2022.10.31
+requests==2.28.1
+ruamel.yaml==0.17.21
+ruamel.yaml.clib==0.2.7
+scipy==1.8.1
+Send2Trash==1.8.0
+sentencepiece==0.1.97
+six==1.16.0
+sniffio==1.3.0
+soupsieve==2.3.2.post1
+speechbrain==0.5.13
+stack-data==0.6.0
+terminado==0.17.0
+tinycss2==1.2.1
+toml==0.10.2
+torch==1.13.0
+torchaudio==0.13.0
+torchvision==0.14.0
+tornado==6.2
+tqdm==4.64.1
+traitlets==5.5.0
+typed-ast==1.5.4
+typing_extensions==4.4.0
+urllib3==1.26.12
+virtualenv==20.16.6
+wcwidth==0.2.5
+webencodings==0.5.1
+websocket-client==1.4.1
+widgetsnbextension==4.0.3
+yamllint==1.23.0
+
+
+2022-11-07 13:34:36,523 - speechbrain.utils.superpowers - DEBUG - 49b86da2
+
+
+2022-11-07 13:34:36,547 - user_data_prepare - INFO - Creating train.json, valid.json, and test.json
+2022-11-07 13:34:36,709 - mini_librispeech_prepare - INFO - train.json successfully created!
+2022-11-07 13:34:36,714 - mini_librispeech_prepare - INFO - valid.json successfully created!
+2022-11-07 13:34:36,787 - mini_librispeech_prepare - INFO - test.json successfully created!
+2022-11-07 13:34:36,794 - speechbrain.core - ERROR - Exception:
+Traceback (most recent call last):
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/speaker_verif/custom_train.py", line 44, in <module>
+    datasets = dataio_prep(hparams)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/speaker_verif/train.py", line 258, in dataio_prep
+    datasets[dataset] = sb.dataio.dataset.DynamicItemDataset.from_json(
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/speechbrain/dataio/dataset.py", line 358, in from_json
+    return cls(data, dynamic_items, output_keys)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/speechbrain/dataio/dataset.py", line 151, in __init__
+    static_keys = list(self.data[self.data_ids[0]].keys())
+IndexError: list index out of range
+2022-11-07 13:43:15,574 - speechbrain.core - INFO - Beginning experiment!
+2022-11-07 13:43:15,575 - speechbrain.core - INFO - Experiment folder: ./results/speaker_id/1986
+2022-11-07 13:43:24,557 - speechbrain.utils.superpowers - DEBUG - anyio==3.6.2
+appdirs==1.4.4
+argon2-cffi==21.3.0
+argon2-cffi-bindings==21.2.0
+asttokens==2.1.0
+attrs==22.1.0
+backcall==0.2.0
+beautifulsoup4==4.11.1
+black==19.10b0
+bleach==5.0.1
+certifi==2022.9.24
+cffi==1.15.1
+cfgv==3.3.1
+charset-normalizer==2.1.1
+click==8.0.4
+contourpy==1.0.6
+cycler==0.11.0
+decorator==5.1.1
+defusedxml==0.7.1
+distlib==0.3.6
+entrypoints==0.3
+executing==1.2.0
+fastjsonschema==2.16.2
+filelock==3.8.0
+flake8==3.7.9
+fonttools==4.38.0
+huggingface-hub==0.10.1
+HyperPyYAML==1.0.1
+identify==2.5.8
+idna==3.4
+ipykernel==5.5.3
+ipython==8.6.0
+ipython-genutils==0.2.0
+ipywidgets==8.0.2
+jedi==0.18.1
+Jinja2==3.1.2
+joblib==1.2.0
+jsonschema==4.17.0
+jupyter==1.0.0
+jupyter-console==6.4.4
+jupyter-server==1.21.0
+jupyter_client==7.4.4
+jupyter_core==4.11.2
+jupyterlab-pygments==0.2.2
+jupyterlab-widgets==3.0.3
+kiwisolver==1.4.4
+MarkupSafe==2.1.1
+matplotlib==3.6.1
+matplotlib-inline==0.1.2
+mccabe==0.6.1
+mistune==2.0.4
+more-itertools==9.0.0
+nbclassic==0.4.8
+nbclient==0.7.0
+nbconvert==7.2.3
+nbformat==5.7.0
+nest-asyncio==1.5.6
+nodeenv==1.7.0
+notebook==6.5.2
+notebook_shim==0.2.2
+numpy==1.23.4
+nvidia-cublas-cu11==11.10.3.66
+nvidia-cuda-nvrtc-cu11==11.7.99
+nvidia-cuda-runtime-cu11==11.7.99
+nvidia-cudnn-cu11==8.5.0.96
+packaging==21.3
+pandocfilters==1.5.0
+parso==0.8.3
+pathspec==0.10.1
+pexpect==4.8.0
+pickleshare==0.7.5
+Pillow==9.3.0
+platformdirs==2.5.2
+pluggy==0.13.1
+pre-commit==2.20.0
+prometheus-client==0.15.0
+prompt-toolkit==3.0.32
+ptyprocess==0.7.0
+pure-eval==0.2.2
+py==1.11.0
+pycodestyle==2.5.0
+pycparser==2.21
+pyflakes==2.1.1
+Pygments==2.13.0
+pyparsing==3.0.9
+pyrsistent==0.19.2
+pytest==5.4.1
+python-dateutil==2.8.2
+PyYAML==6.0
+pyzmq==24.0.1
+qtconsole==5.4.0
+QtPy==2.2.1
+regex==2022.10.31
+requests==2.28.1
+ruamel.yaml==0.17.21
+ruamel.yaml.clib==0.2.7
+scipy==1.8.1
+Send2Trash==1.8.0
+sentencepiece==0.1.97
+six==1.16.0
+sniffio==1.3.0
+soupsieve==2.3.2.post1
+speechbrain==0.5.13
+stack-data==0.6.0
+terminado==0.17.0
+tinycss2==1.2.1
+toml==0.10.2
+torch==1.13.0
+torchaudio==0.13.0
+torchvision==0.14.0
+tornado==6.2
+tqdm==4.64.1
+traitlets==5.5.0
+typed-ast==1.5.4
+typing_extensions==4.4.0
+urllib3==1.26.12
+virtualenv==20.16.6
+wcwidth==0.2.5
+webencodings==0.5.1
+websocket-client==1.4.1
+widgetsnbextension==4.0.3
+yamllint==1.23.0
+
+
+2022-11-07 13:43:24,634 - speechbrain.utils.superpowers - DEBUG - 49b86da2
+
+
+2022-11-07 13:43:24,653 - user_data_prepare - INFO - Creating train.json, valid.json, and test.json
+2022-11-07 13:43:24,916 - mini_librispeech_prepare - INFO - train.json successfully created!
+2022-11-07 13:43:24,956 - mini_librispeech_prepare - INFO - valid.json successfully created!
+2022-11-07 13:43:25,006 - mini_librispeech_prepare - INFO - test.json successfully created!
+2022-11-07 13:43:25,023 - speechbrain.dataio.encoder - DEBUG - Would load categorical encoding from ./results/speaker_id/1986/save/label_encoder.txt, but file doesn't exist yet.
+2022-11-07 13:43:25,028 - speechbrain.dataio.encoder - INFO - Load called, but CategoricalEncoder is not empty. Loaded data will overwrite everything. This is normal if there is e.g. an unk label defined at init.
+2022-11-07 13:43:25,043 - speechbrain.dataio.encoder - DEBUG - Loaded categorical encoding from ./results/speaker_id/1986/save/label_encoder.txt
+2022-11-07 13:43:25,044 - speechbrain.core - INFO - Info: ckpt_interval_minutes arg from hparam file is used
+2022-11-07 13:43:25,062 - speechbrain.core - INFO - 4.5M trainable parameters in SpkIdBrain
+2022-11-07 13:43:25,095 - speechbrain.utils.checkpoints - INFO - Loading a checkpoint from results/speaker_id/1986/save/CKPT+2022-11-03+16-34-31+00
+2022-11-07 13:43:25,218 - speechbrain.core - ERROR - Exception:
+Traceback (most recent call last):
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/speaker_verif/custom_train.py", line 59, in <module>
+    spk_id_brain.fit(
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/speechbrain/core.py", line 1143, in fit
+    self.on_fit_start()
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/speechbrain/core.py", line 797, in on_fit_start
+    self.checkpointer.recover_if_possible(
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/speechbrain/utils/checkpoints.py", line 840, in recover_if_possible
+    self.load_checkpoint(chosen_ckpt, device)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/speechbrain/utils/checkpoints.py", line 853, in load_checkpoint
+    self._call_load_hooks(checkpoint, device)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/speechbrain/utils/checkpoints.py", line 988, in _call_load_hooks
+    default_hook(obj, loadpath, end_of_epoch, device)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/speechbrain/utils/checkpoints.py", line 93, in torch_recovery
+    obj.load_state_dict(torch.load(path, map_location=device), strict=True)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1667, in load_state_dict
+    raise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(
+RuntimeError: Error(s) in loading state_dict for Classifier:
+	size mismatch for out.w.weight: copying a param with shape torch.Size([28, 512]) from checkpoint, the shape in current model is torch.Size([29, 512]).
+	size mismatch for out.w.bias: copying a param with shape torch.Size([28]) from checkpoint, the shape in current model is torch.Size([29]).
+2022-11-07 13:44:49,336 - speechbrain.core - INFO - Beginning experiment!
+2022-11-07 13:44:49,337 - speechbrain.core - INFO - Experiment folder: ./results/speaker_id/1986
+2022-11-07 13:44:58,078 - speechbrain.utils.superpowers - DEBUG - anyio==3.6.2
+appdirs==1.4.4
+argon2-cffi==21.3.0
+argon2-cffi-bindings==21.2.0
+asttokens==2.1.0
+attrs==22.1.0
+backcall==0.2.0
+beautifulsoup4==4.11.1
+black==19.10b0
+bleach==5.0.1
+certifi==2022.9.24
+cffi==1.15.1
+cfgv==3.3.1
+charset-normalizer==2.1.1
+click==8.0.4
+contourpy==1.0.6
+cycler==0.11.0
+decorator==5.1.1
+defusedxml==0.7.1
+distlib==0.3.6
+entrypoints==0.3
+executing==1.2.0
+fastjsonschema==2.16.2
+filelock==3.8.0
+flake8==3.7.9
+fonttools==4.38.0
+huggingface-hub==0.10.1
+HyperPyYAML==1.0.1
+identify==2.5.8
+idna==3.4
+ipykernel==5.5.3
+ipython==8.6.0
+ipython-genutils==0.2.0
+ipywidgets==8.0.2
+jedi==0.18.1
+Jinja2==3.1.2
+joblib==1.2.0
+jsonschema==4.17.0
+jupyter==1.0.0
+jupyter-console==6.4.4
+jupyter-server==1.21.0
+jupyter_client==7.4.4
+jupyter_core==4.11.2
+jupyterlab-pygments==0.2.2
+jupyterlab-widgets==3.0.3
+kiwisolver==1.4.4
+MarkupSafe==2.1.1
+matplotlib==3.6.1
+matplotlib-inline==0.1.2
+mccabe==0.6.1
+mistune==2.0.4
+more-itertools==9.0.0
+nbclassic==0.4.8
+nbclient==0.7.0
+nbconvert==7.2.3
+nbformat==5.7.0
+nest-asyncio==1.5.6
+nodeenv==1.7.0
+notebook==6.5.2
+notebook_shim==0.2.2
+numpy==1.23.4
+nvidia-cublas-cu11==11.10.3.66
+nvidia-cuda-nvrtc-cu11==11.7.99
+nvidia-cuda-runtime-cu11==11.7.99
+nvidia-cudnn-cu11==8.5.0.96
+packaging==21.3
+pandocfilters==1.5.0
+parso==0.8.3
+pathspec==0.10.1
+pexpect==4.8.0
+pickleshare==0.7.5
+Pillow==9.3.0
+platformdirs==2.5.2
+pluggy==0.13.1
+pre-commit==2.20.0
+prometheus-client==0.15.0
+prompt-toolkit==3.0.32
+ptyprocess==0.7.0
+pure-eval==0.2.2
+py==1.11.0
+pycodestyle==2.5.0
+pycparser==2.21
+pyflakes==2.1.1
+Pygments==2.13.0
+pyparsing==3.0.9
+pyrsistent==0.19.2
+pytest==5.4.1
+python-dateutil==2.8.2
+PyYAML==6.0
+pyzmq==24.0.1
+qtconsole==5.4.0
+QtPy==2.2.1
+regex==2022.10.31
+requests==2.28.1
+ruamel.yaml==0.17.21
+ruamel.yaml.clib==0.2.7
+scipy==1.8.1
+Send2Trash==1.8.0
+sentencepiece==0.1.97
+six==1.16.0
+sniffio==1.3.0
+soupsieve==2.3.2.post1
+speechbrain==0.5.13
+stack-data==0.6.0
+terminado==0.17.0
+tinycss2==1.2.1
+toml==0.10.2
+torch==1.13.0
+torchaudio==0.13.0
+torchvision==0.14.0
+tornado==6.2
+tqdm==4.64.1
+traitlets==5.5.0
+typed-ast==1.5.4
+typing_extensions==4.4.0
+urllib3==1.26.12
+virtualenv==20.16.6
+wcwidth==0.2.5
+webencodings==0.5.1
+websocket-client==1.4.1
+widgetsnbextension==4.0.3
+yamllint==1.23.0
+
+
+2022-11-07 13:44:58,153 - speechbrain.utils.superpowers - DEBUG - 49b86da2
+
+
+2022-11-07 13:44:58,173 - user_data_prepare - INFO - Preparation completed in previous run, skipping.
+2022-11-07 13:44:58,194 - speechbrain.dataio.encoder - DEBUG - Loaded categorical encoding from ./results/speaker_id/1986/save/label_encoder.txt
+2022-11-07 13:44:58,195 - speechbrain.dataio.encoder - INFO - Load called, but CategoricalEncoder is not empty. Loaded data will overwrite everything. This is normal if there is e.g. an unk label defined at init.
+2022-11-07 13:44:58,200 - speechbrain.dataio.encoder - DEBUG - Loaded categorical encoding from ./results/speaker_id/1986/save/label_encoder.txt
+2022-11-07 13:44:58,201 - speechbrain.core - INFO - Info: ckpt_interval_minutes arg from hparam file is used
+2022-11-07 13:44:58,225 - speechbrain.core - INFO - 4.5M trainable parameters in SpkIdBrain
+2022-11-07 13:44:58,266 - speechbrain.utils.checkpoints - INFO - Loading a checkpoint from results/speaker_id/1986/save/CKPT+2022-11-03+16-34-31+00
+2022-11-07 13:44:58,737 - speechbrain.utils.epoch_loop - INFO - Going into epoch 10
+2022-11-07 13:44:58,800 - speechbrain.core - ERROR - Exception:
+Traceback (most recent call last):
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/speaker_verif/custom_train.py", line 59, in <module>
+    spk_id_brain.fit(
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/speechbrain/core.py", line 1153, in fit
+    self._fit_train(train_set=train_set, epoch=epoch, enable=enable)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/speechbrain/core.py", line 1004, in _fit_train
+    for batch in t:
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/tqdm/std.py", line 1195, in __iter__
+    for obj in iterable:
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 628, in __next__
+    data = self._next_data()
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 671, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 58, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 58, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/speechbrain/dataio/dataset.py", line 165, in __getitem__
+    return self.pipeline.compute_outputs({"id": data_id, **data_point})
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/speechbrain/utils/data_pipeline.py", line 464, in compute_outputs
+    return self._compute(data, self._exec_order, self.output_mapping)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/speechbrain/utils/data_pipeline.py", line 496, in _compute
+    values = item(*args)  # Call the DynamicItem to produce output
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/speechbrain/utils/data_pipeline.py", line 72, in __call__
+    return self.func(*args)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/speaker_verif/train.py", line 236, in audio_pipeline
+    sig = sb.dataio.dataio.read_audio(wav)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/speechbrain/dataio/dataio.py", line 200, in read_audio
+    audio, _ = torchaudio.load(waveforms_obj)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/torchaudio/backend/sox_io_backend.py", line 227, in load
+    return _fallback_load(filepath, frame_offset, num_frames, normalize, channels_first, format)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/torchaudio/backend/sox_io_backend.py", line 29, in _fail_load
+    raise RuntimeError("Failed to load audio from {}".format(filepath))
+RuntimeError: Failed to load audio from ./data/./data/user_data/5317349/5317349-0003.wav
+2022-11-07 13:53:40,974 - speechbrain.core - INFO - Beginning experiment!
+2022-11-07 13:53:40,975 - speechbrain.core - INFO - Experiment folder: ./results/speaker_id/1986
+2022-11-07 13:53:50,434 - speechbrain.utils.superpowers - DEBUG - anyio==3.6.2
+appdirs==1.4.4
+argon2-cffi==21.3.0
+argon2-cffi-bindings==21.2.0
+asttokens==2.1.0
+attrs==22.1.0
+backcall==0.2.0
+beautifulsoup4==4.11.1
+black==19.10b0
+bleach==5.0.1
+certifi==2022.9.24
+cffi==1.15.1
+cfgv==3.3.1
+charset-normalizer==2.1.1
+click==8.0.4
+contourpy==1.0.6
+cycler==0.11.0
+decorator==5.1.1
+defusedxml==0.7.1
+distlib==0.3.6
+entrypoints==0.3
+executing==1.2.0
+fastjsonschema==2.16.2
+filelock==3.8.0
+flake8==3.7.9
+fonttools==4.38.0
+huggingface-hub==0.10.1
+HyperPyYAML==1.0.1
+identify==2.5.8
+idna==3.4
+ipykernel==5.5.3
+ipython==8.6.0
+ipython-genutils==0.2.0
+ipywidgets==8.0.2
+jedi==0.18.1
+Jinja2==3.1.2
+joblib==1.2.0
+jsonschema==4.17.0
+jupyter==1.0.0
+jupyter-console==6.4.4
+jupyter-server==1.21.0
+jupyter_client==7.4.4
+jupyter_core==4.11.2
+jupyterlab-pygments==0.2.2
+jupyterlab-widgets==3.0.3
+kiwisolver==1.4.4
+MarkupSafe==2.1.1
+matplotlib==3.6.1
+matplotlib-inline==0.1.2
+mccabe==0.6.1
+mistune==2.0.4
+more-itertools==9.0.0
+nbclassic==0.4.8
+nbclient==0.7.0
+nbconvert==7.2.3
+nbformat==5.7.0
+nest-asyncio==1.5.6
+nodeenv==1.7.0
+notebook==6.5.2
+notebook_shim==0.2.2
+numpy==1.23.4
+nvidia-cublas-cu11==11.10.3.66
+nvidia-cuda-nvrtc-cu11==11.7.99
+nvidia-cuda-runtime-cu11==11.7.99
+nvidia-cudnn-cu11==8.5.0.96
+packaging==21.3
+pandocfilters==1.5.0
+parso==0.8.3
+pathspec==0.10.1
+pexpect==4.8.0
+pickleshare==0.7.5
+Pillow==9.3.0
+platformdirs==2.5.2
+pluggy==0.13.1
+pre-commit==2.20.0
+prometheus-client==0.15.0
+prompt-toolkit==3.0.32
+ptyprocess==0.7.0
+pure-eval==0.2.2
+py==1.11.0
+pycodestyle==2.5.0
+pycparser==2.21
+pyflakes==2.1.1
+Pygments==2.13.0
+pyparsing==3.0.9
+pyrsistent==0.19.2
+pytest==5.4.1
+python-dateutil==2.8.2
+PyYAML==6.0
+pyzmq==24.0.1
+qtconsole==5.4.0
+QtPy==2.2.1
+regex==2022.10.31
+requests==2.28.1
+ruamel.yaml==0.17.21
+ruamel.yaml.clib==0.2.7
+scipy==1.8.1
+Send2Trash==1.8.0
+sentencepiece==0.1.97
+six==1.16.0
+sniffio==1.3.0
+soupsieve==2.3.2.post1
+speechbrain==0.5.13
+stack-data==0.6.0
+terminado==0.17.0
+tinycss2==1.2.1
+toml==0.10.2
+torch==1.13.0
+torchaudio==0.13.0
+torchvision==0.14.0
+tornado==6.2
+tqdm==4.64.1
+traitlets==5.5.0
+typed-ast==1.5.4
+typing_extensions==4.4.0
+urllib3==1.26.12
+virtualenv==20.16.6
+wcwidth==0.2.5
+webencodings==0.5.1
+websocket-client==1.4.1
+widgetsnbextension==4.0.3
+yamllint==1.23.0
+
+
+2022-11-07 13:53:50,514 - speechbrain.utils.superpowers - DEBUG - 49b86da2
+
+
+2022-11-07 13:53:50,535 - user_data_prepare - INFO - Creating train.json, valid.json, and test.json
+2022-11-07 13:53:50,817 - mini_librispeech_prepare - INFO - train.json successfully created!
+2022-11-07 13:53:50,851 - mini_librispeech_prepare - INFO - valid.json successfully created!
+2022-11-07 13:53:50,898 - mini_librispeech_prepare - INFO - test.json successfully created!
+2022-11-07 13:53:50,919 - speechbrain.dataio.encoder - DEBUG - Loaded categorical encoding from ./results/speaker_id/1986/save/label_encoder.txt
+2022-11-07 13:53:50,921 - speechbrain.dataio.encoder - INFO - Load called, but CategoricalEncoder is not empty. Loaded data will overwrite everything. This is normal if there is e.g. an unk label defined at init.
+2022-11-07 13:53:50,932 - speechbrain.dataio.encoder - DEBUG - Loaded categorical encoding from ./results/speaker_id/1986/save/label_encoder.txt
+2022-11-07 13:53:50,933 - speechbrain.core - INFO - Info: ckpt_interval_minutes arg from hparam file is used
+2022-11-07 13:53:50,953 - speechbrain.core - INFO - 4.5M trainable parameters in SpkIdBrain
+2022-11-07 13:53:50,982 - speechbrain.utils.checkpoints - INFO - Loading a checkpoint from results/speaker_id/1986/save/CKPT+2022-11-03+16-34-31+00
+2022-11-07 13:53:51,480 - speechbrain.utils.epoch_loop - INFO - Going into epoch 10
+2022-11-07 13:53:51,507 - speechbrain.core - ERROR - Exception:
+Traceback (most recent call last):
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/speaker_verif/custom_train.py", line 59, in <module>
+    spk_id_brain.fit(
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/speechbrain/core.py", line 1153, in fit
+    self._fit_train(train_set=train_set, epoch=epoch, enable=enable)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/speechbrain/core.py", line 1004, in _fit_train
+    for batch in t:
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/tqdm/std.py", line 1195, in __iter__
+    for obj in iterable:
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 628, in __next__
+    data = self._next_data()
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 671, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 58, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 58, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/speechbrain/dataio/dataset.py", line 165, in __getitem__
+    return self.pipeline.compute_outputs({"id": data_id, **data_point})
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/speechbrain/utils/data_pipeline.py", line 464, in compute_outputs
+    return self._compute(data, self._exec_order, self.output_mapping)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/speechbrain/utils/data_pipeline.py", line 496, in _compute
+    values = item(*args)  # Call the DynamicItem to produce output
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/speechbrain/utils/data_pipeline.py", line 72, in __call__
+    return self.func(*args)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/speaker_verif/train.py", line 236, in audio_pipeline
+    sig = sb.dataio.dataio.read_audio(wav)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/speechbrain/dataio/dataio.py", line 200, in read_audio
+    audio, _ = torchaudio.load(waveforms_obj)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/torchaudio/backend/sox_io_backend.py", line 227, in load
+    return _fallback_load(filepath, frame_offset, num_frames, normalize, channels_first, format)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/torchaudio/backend/sox_io_backend.py", line 29, in _fail_load
+    raise RuntimeError("Failed to load audio from {}".format(filepath))
+RuntimeError: Failed to load audio from ./data/data/user_data/5317349/5317349/5317349-0007.wav
+2022-11-07 13:56:07,534 - speechbrain.core - INFO - Beginning experiment!
+2022-11-07 13:56:07,535 - speechbrain.core - INFO - Experiment folder: ./results/speaker_id/1986
+2022-11-07 13:56:16,034 - speechbrain.utils.superpowers - DEBUG - anyio==3.6.2
+appdirs==1.4.4
+argon2-cffi==21.3.0
+argon2-cffi-bindings==21.2.0
+asttokens==2.1.0
+attrs==22.1.0
+backcall==0.2.0
+beautifulsoup4==4.11.1
+black==19.10b0
+bleach==5.0.1
+certifi==2022.9.24
+cffi==1.15.1
+cfgv==3.3.1
+charset-normalizer==2.1.1
+click==8.0.4
+contourpy==1.0.6
+cycler==0.11.0
+decorator==5.1.1
+defusedxml==0.7.1
+distlib==0.3.6
+entrypoints==0.3
+executing==1.2.0
+fastjsonschema==2.16.2
+filelock==3.8.0
+flake8==3.7.9
+fonttools==4.38.0
+huggingface-hub==0.10.1
+HyperPyYAML==1.0.1
+identify==2.5.8
+idna==3.4
+ipykernel==5.5.3
+ipython==8.6.0
+ipython-genutils==0.2.0
+ipywidgets==8.0.2
+jedi==0.18.1
+Jinja2==3.1.2
+joblib==1.2.0
+jsonschema==4.17.0
+jupyter==1.0.0
+jupyter-console==6.4.4
+jupyter-server==1.21.0
+jupyter_client==7.4.4
+jupyter_core==4.11.2
+jupyterlab-pygments==0.2.2
+jupyterlab-widgets==3.0.3
+kiwisolver==1.4.4
+MarkupSafe==2.1.1
+matplotlib==3.6.1
+matplotlib-inline==0.1.2
+mccabe==0.6.1
+mistune==2.0.4
+more-itertools==9.0.0
+nbclassic==0.4.8
+nbclient==0.7.0
+nbconvert==7.2.3
+nbformat==5.7.0
+nest-asyncio==1.5.6
+nodeenv==1.7.0
+notebook==6.5.2
+notebook_shim==0.2.2
+numpy==1.23.4
+nvidia-cublas-cu11==11.10.3.66
+nvidia-cuda-nvrtc-cu11==11.7.99
+nvidia-cuda-runtime-cu11==11.7.99
+nvidia-cudnn-cu11==8.5.0.96
+packaging==21.3
+pandocfilters==1.5.0
+parso==0.8.3
+pathspec==0.10.1
+pexpect==4.8.0
+pickleshare==0.7.5
+Pillow==9.3.0
+platformdirs==2.5.2
+pluggy==0.13.1
+pre-commit==2.20.0
+prometheus-client==0.15.0
+prompt-toolkit==3.0.32
+ptyprocess==0.7.0
+pure-eval==0.2.2
+py==1.11.0
+pycodestyle==2.5.0
+pycparser==2.21
+pyflakes==2.1.1
+Pygments==2.13.0
+pyparsing==3.0.9
+pyrsistent==0.19.2
+pytest==5.4.1
+python-dateutil==2.8.2
+PyYAML==6.0
+pyzmq==24.0.1
+qtconsole==5.4.0
+QtPy==2.2.1
+regex==2022.10.31
+requests==2.28.1
+ruamel.yaml==0.17.21
+ruamel.yaml.clib==0.2.7
+scipy==1.8.1
+Send2Trash==1.8.0
+sentencepiece==0.1.97
+six==1.16.0
+sniffio==1.3.0
+soupsieve==2.3.2.post1
+speechbrain==0.5.13
+stack-data==0.6.0
+terminado==0.17.0
+tinycss2==1.2.1
+toml==0.10.2
+torch==1.13.0
+torchaudio==0.13.0
+torchvision==0.14.0
+tornado==6.2
+tqdm==4.64.1
+traitlets==5.5.0
+typed-ast==1.5.4
+typing_extensions==4.4.0
+urllib3==1.26.12
+virtualenv==20.16.6
+wcwidth==0.2.5
+webencodings==0.5.1
+websocket-client==1.4.1
+widgetsnbextension==4.0.3
+yamllint==1.23.0
+
+
+2022-11-07 13:56:16,106 - speechbrain.utils.superpowers - DEBUG - 49b86da2
+
+
+2022-11-07 13:56:16,125 - user_data_prepare - INFO - Creating train.json, valid.json, and test.json
+2022-11-07 13:56:16,376 - mini_librispeech_prepare - INFO - train.json successfully created!
+2022-11-07 13:56:16,403 - mini_librispeech_prepare - INFO - valid.json successfully created!
+2022-11-07 13:56:16,446 - mini_librispeech_prepare - INFO - test.json successfully created!
+2022-11-07 13:56:16,461 - speechbrain.dataio.encoder - DEBUG - Loaded categorical encoding from ./results/speaker_id/1986/save/label_encoder.txt
+2022-11-07 13:56:16,462 - speechbrain.dataio.encoder - INFO - Load called, but CategoricalEncoder is not empty. Loaded data will overwrite everything. This is normal if there is e.g. an unk label defined at init.
+2022-11-07 13:56:16,465 - speechbrain.dataio.encoder - DEBUG - Loaded categorical encoding from ./results/speaker_id/1986/save/label_encoder.txt
+2022-11-07 13:56:16,465 - speechbrain.core - INFO - Info: ckpt_interval_minutes arg from hparam file is used
+2022-11-07 13:56:16,480 - speechbrain.core - INFO - 4.5M trainable parameters in SpkIdBrain
+2022-11-07 13:56:16,502 - speechbrain.utils.checkpoints - INFO - Loading a checkpoint from results/speaker_id/1986/save/CKPT+2022-11-03+16-34-31+00
+2022-11-07 13:56:17,080 - speechbrain.utils.epoch_loop - INFO - Going into epoch 10
+2022-11-07 13:56:17,617 - speechbrain.core - ERROR - Exception:
+Traceback (most recent call last):
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/speaker_verif/custom_train.py", line 59, in <module>
+    spk_id_brain.fit(
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/speechbrain/core.py", line 1153, in fit
+    self._fit_train(train_set=train_set, epoch=epoch, enable=enable)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/speechbrain/core.py", line 1009, in _fit_train
+    loss = self.fit_batch(batch)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/speechbrain/core.py", line 881, in fit_batch
+    outputs = self.compute_forward(batch, Stage.TRAIN)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/speaker_verif/train.py", line 60, in compute_forward
+    feats, lens = self.prepare_features(batch.sig, stage)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/speaker_verif/train.py", line 84, in prepare_features
+    wavs_noise = self.modules.env_corrupt(wavs, lens)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1190, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/speechbrain/lobes/augment.py", line 446, in forward
+    waveforms = self.add_noise(waveforms, lengths)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1190, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/speechbrain/processing/speech_augmentation.py", line 150, in forward
+    noisy_waveform *= 1 - noise_amplitude_factor
+RuntimeError: The size of tensor a (235520) must match the size of tensor b (8) at non-singleton dimension 1
+2022-11-07 14:10:13,009 - speechbrain.core - INFO - Beginning experiment!
+2022-11-07 14:10:13,010 - speechbrain.core - INFO - Experiment folder: ./results/speaker_id/1986
+2022-11-07 14:10:21,940 - speechbrain.utils.superpowers - DEBUG - anyio==3.6.2
+appdirs==1.4.4
+argon2-cffi==21.3.0
+argon2-cffi-bindings==21.2.0
+asttokens==2.1.0
+attrs==22.1.0
+backcall==0.2.0
+beautifulsoup4==4.11.1
+black==19.10b0
+bleach==5.0.1
+certifi==2022.9.24
+cffi==1.15.1
+cfgv==3.3.1
+charset-normalizer==2.1.1
+click==8.0.4
+contourpy==1.0.6
+cycler==0.11.0
+decorator==5.1.1
+defusedxml==0.7.1
+distlib==0.3.6
+entrypoints==0.3
+executing==1.2.0
+fastjsonschema==2.16.2
+filelock==3.8.0
+flake8==3.7.9
+fonttools==4.38.0
+huggingface-hub==0.10.1
+HyperPyYAML==1.0.1
+identify==2.5.8
+idna==3.4
+ipykernel==5.5.3
+ipython==8.6.0
+ipython-genutils==0.2.0
+ipywidgets==8.0.2
+jedi==0.18.1
+Jinja2==3.1.2
+joblib==1.2.0
+jsonschema==4.17.0
+jupyter==1.0.0
+jupyter-console==6.4.4
+jupyter-server==1.21.0
+jupyter_client==7.4.4
+jupyter_core==4.11.2
+jupyterlab-pygments==0.2.2
+jupyterlab-widgets==3.0.3
+kiwisolver==1.4.4
+MarkupSafe==2.1.1
+matplotlib==3.6.1
+matplotlib-inline==0.1.2
+mccabe==0.6.1
+mistune==2.0.4
+more-itertools==9.0.0
+nbclassic==0.4.8
+nbclient==0.7.0
+nbconvert==7.2.3
+nbformat==5.7.0
+nest-asyncio==1.5.6
+nodeenv==1.7.0
+notebook==6.5.2
+notebook_shim==0.2.2
+numpy==1.23.4
+nvidia-cublas-cu11==11.10.3.66
+nvidia-cuda-nvrtc-cu11==11.7.99
+nvidia-cuda-runtime-cu11==11.7.99
+nvidia-cudnn-cu11==8.5.0.96
+packaging==21.3
+pandocfilters==1.5.0
+parso==0.8.3
+pathspec==0.10.1
+pexpect==4.8.0
+pickleshare==0.7.5
+Pillow==9.3.0
+platformdirs==2.5.2
+pluggy==0.13.1
+pre-commit==2.20.0
+prometheus-client==0.15.0
+prompt-toolkit==3.0.32
+ptyprocess==0.7.0
+pure-eval==0.2.2
+py==1.11.0
+pycodestyle==2.5.0
+pycparser==2.21
+pyflakes==2.1.1
+Pygments==2.13.0
+pyparsing==3.0.9
+pyrsistent==0.19.2
+pytest==5.4.1
+python-dateutil==2.8.2
+PyYAML==6.0
+pyzmq==24.0.1
+qtconsole==5.4.0
+QtPy==2.2.1
+regex==2022.10.31
+requests==2.28.1
+ruamel.yaml==0.17.21
+ruamel.yaml.clib==0.2.7
+scipy==1.8.1
+Send2Trash==1.8.0
+sentencepiece==0.1.97
+six==1.16.0
+sniffio==1.3.0
+soupsieve==2.3.2.post1
+speechbrain==0.5.13
+stack-data==0.6.0
+terminado==0.17.0
+tinycss2==1.2.1
+toml==0.10.2
+torch==1.13.0
+torchaudio==0.13.0
+torchvision==0.14.0
+tornado==6.2
+tqdm==4.64.1
+traitlets==5.5.0
+typed-ast==1.5.4
+typing_extensions==4.4.0
+urllib3==1.26.12
+virtualenv==20.16.6
+wcwidth==0.2.5
+webencodings==0.5.1
+websocket-client==1.4.1
+widgetsnbextension==4.0.3
+yamllint==1.23.0
+
+
+2022-11-07 14:10:22,020 - speechbrain.utils.superpowers - DEBUG - 49b86da2
+
+
+2022-11-07 14:10:22,040 - user_data_prepare - INFO - Creating train.json, valid.json, and test.json
+2022-11-07 14:10:22,317 - mini_librispeech_prepare - INFO - train.json successfully created!
+2022-11-07 14:10:22,354 - mini_librispeech_prepare - INFO - valid.json successfully created!
+2022-11-07 14:10:22,392 - mini_librispeech_prepare - INFO - test.json successfully created!
+2022-11-07 14:10:22,425 - speechbrain.dataio.encoder - DEBUG - Loaded categorical encoding from ./results/speaker_id/1986/save/label_encoder.txt
+2022-11-07 14:10:22,426 - speechbrain.dataio.encoder - INFO - Load called, but CategoricalEncoder is not empty. Loaded data will overwrite everything. This is normal if there is e.g. an unk label defined at init.
+2022-11-07 14:10:22,432 - speechbrain.dataio.encoder - DEBUG - Loaded categorical encoding from ./results/speaker_id/1986/save/label_encoder.txt
+2022-11-07 14:10:22,433 - speechbrain.core - INFO - Info: ckpt_interval_minutes arg from hparam file is used
+2022-11-07 14:10:22,450 - speechbrain.core - INFO - 4.5M trainable parameters in SpkIdBrain
+2022-11-07 14:10:22,480 - speechbrain.utils.checkpoints - INFO - Loading a checkpoint from results/speaker_id/1986/save/CKPT+2022-11-03+16-34-31+00
+2022-11-07 14:10:22,973 - speechbrain.utils.epoch_loop - INFO - Going into epoch 10
+2022-11-07 14:10:23,463 - speechbrain.core - ERROR - Exception:
+Traceback (most recent call last):
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/speaker_verif/custom_train.py", line 59, in <module>
+    spk_id_brain.fit(
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/speechbrain/core.py", line 1153, in fit
+    self._fit_train(train_set=train_set, epoch=epoch, enable=enable)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/speechbrain/core.py", line 1009, in _fit_train
+    loss = self.fit_batch(batch)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/speechbrain/core.py", line 881, in fit_batch
+    outputs = self.compute_forward(batch, Stage.TRAIN)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/speaker_verif/train.py", line 60, in compute_forward
+    feats, lens = self.prepare_features(batch.sig, stage)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/speaker_verif/train.py", line 84, in prepare_features
+    wavs_noise = self.modules.env_corrupt(wavs, lens)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1190, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/speechbrain/lobes/augment.py", line 446, in forward
+    waveforms = self.add_noise(waveforms, lengths)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1190, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/env/lib/python3.10/site-packages/speechbrain/processing/speech_augmentation.py", line 150, in forward
+    noisy_waveform *= 1 - noise_amplitude_factor
+RuntimeError: The size of tensor a (235520) must match the size of tensor b (8) at non-singleton dimension 1

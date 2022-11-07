@@ -1,36 +1,12 @@
 #!/usr/bin/env python3
-"""Recipe for training a speaker-id system. The template can use used as a
-basic example for any signal classification task such as language_id,
-emotion recognition, command classification, etc. The proposed task classifies
-28 speakers using Mini Librispeech. This task is very easy. In a real
-scenario, you need to use datasets with a larger number of speakers such as
-the voxceleb one (see recipes/VoxCeleb). Speechbrain has already some built-in
-models for signal classifications (see the ECAPA one in
-speechbrain.lobes.models.ECAPA_TDNN.py or the xvector in
-speechbrain/lobes/models/Xvector.py)
 
-To run this recipe, do the following:
-> python train.py train.yaml
-
-To read the code, first scroll to the bottom to see the "main" code.
-This gives a high-level overview of what is going on, while the
-Brain class definition provides the details of what happens
-for each batch during training.
-
-The first time you run it, this script should automatically download
-and prepare the Mini Librispeech dataset for computation. Noise and
-reverberation are automatically added to each sample from OpenRIR.
-
-Authors
- * Mirco Ravanelli 2021
-"""
 import os
 import sys
 import torch
 import speechbrain as sb
 from hyperpyyaml import load_hyperpyyaml
-from mini_librispeech_prepare import prepare_mini_librispeech
-from .train import SpkIdBrain, dataio_prep
+from user_data_prepare import prepare_user_data
+from train import SpkIdBrain, dataio_prep
 
 # Training it on our sample data
 if __name__ == "__main__":
@@ -54,7 +30,7 @@ if __name__ == "__main__":
 
     # Data preparation, to be run on only one process.
     sb.utils.distributed.run_on_main(
-        prepare_mini_librispeech,
+        prepare_user_data,
         kwargs={
             "data_folder": hparams["data_folder"],
             "save_json_train": hparams["train_annotation"],

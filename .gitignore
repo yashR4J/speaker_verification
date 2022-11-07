@@ -3,6 +3,8 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Data 
+speaker_verif/data
 
 # Distribution / packaging
 .Python
