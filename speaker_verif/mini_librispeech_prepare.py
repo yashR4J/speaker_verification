@@ -198,11 +198,5 @@ def download_mini_librispeech(destination):
     download_file(MINILIBRI_TRAIN_URL, train_archive)
     shutil.unpack_archive(train_archive, destination)
 
-
-if __name__ == '__main__':
-
-    wav_list = ['data/custom/19-198-0002.flac']
-    create_json(wav_list, "custom.json")
-    # download_mini_librispeech('./data')
     
     

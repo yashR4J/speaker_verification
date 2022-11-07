@@ -203,7 +203,6 @@ class SpkIdBrain(sb.Brain):
                 test_stats=stats,
             )
 
-
 def dataio_prep(hparams):
     """This function prepares the datasets to be used in the brain class.
     It also defines the data processing pipeline through user-defined functions.
