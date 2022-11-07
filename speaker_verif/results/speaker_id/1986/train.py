@@ -27,10 +27,10 @@ Authors
 import os
 import sys
 import torch
+import torchaudio
 import speechbrain as sb
 from hyperpyyaml import load_hyperpyyaml
 from mini_librispeech_prepare import prepare_mini_librispeech
-
 
 # Brain class for speech enhancement training
 class SpkIdBrain(sb.Brain):
@@ -234,7 +234,11 @@ def dataio_prep(hparams):
     def audio_pipeline(wav):
         """Load the signal, and pass it and its length to the corruption class.
         This is done on the CPU in the `collate_fn`."""
+        info = torchaudio.info(wav)
         sig = sb.dataio.dataio.read_audio(wav)
+        # multiple channels
+        if info.num_channels > 1:
+            sig = torch.mean(sig, dim=1)
         return sig
 
     # Define label pipeline:

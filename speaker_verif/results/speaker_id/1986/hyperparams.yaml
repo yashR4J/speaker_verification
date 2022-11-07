@@ -47,7 +47,7 @@ n_mels: 23
 
 # Training Parameters
 sample_rate: 16000
-number_of_epochs: 10
+number_of_epochs: 35
 batch_size: 16
 lr_start: 0.001
 lr_final: 0.0001
@@ -108,7 +108,7 @@ classifier: &id005 !new:custom_model.Classifier
 # which is saved by the Checkpointer so that training can be resumed
 # if it gets interrupted at any point.
 epoch_counter: &id007 !new:speechbrain.utils.epoch_loop.EpochCounter
-  limit: 10
+  limit: 35
 
 # Objects in "modules" dict will have their parameters moved to the correct
 # device, as well as having train()/eval() called on them by the Brain class.
@@ -128,7 +128,7 @@ opt_class: !name:torch.optim.Adam
 lr_annealing: !new:speechbrain.nnet.schedulers.LinearScheduler
   initial_value: 0.001
   final_value: 0.0001
-  epoch_count: 10
+  epoch_count: 35
 
 # This object is used for saving the state of training both so that it
 # can be resumed if it gets interrupted, and also so that the best checkpoint

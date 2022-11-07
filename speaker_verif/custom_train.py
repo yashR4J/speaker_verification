@@ -71,14 +71,4 @@ if __name__ == "__main__":
         test_loader_kwargs=hparams["dataloader_options"],
     )
 
-    # FOR INFERENCE
-    # Trainer initialization
-    transcripts = spk_id_brain.transcribe_dataset(
-        dataset=datasets["your_dataset"], # Must be obtained from the dataio_function
-        min_key="WER", # We load the model with the lowest WER
-        loader_kwargs=hparams["transcribe_dataloader_opts"], # opts for the dataloading
-    )
-
-    print(transcripts)
-
 
