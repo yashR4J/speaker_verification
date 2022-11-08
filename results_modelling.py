@@ -35,21 +35,17 @@ def ckpt_metrics(ckpt):
             ckpt_metrics[1].append(vl)
     return ckpt_metrics
 
+def plot(training_loss, validation_loss):
+    plt.plot(range(1,10), training_loss, 'g', label='Training loss')
+    plt.plot(range(1,10), validation_loss, 'b', label='validation loss')
+    plt.title('Training and Validation loss')
+    plt.xlabel('Epochs')
+    plt.ylabel('Loss')
+    plt.legend()
+    plt.show()
+    
 ckpt1_metrics = ckpt_metrics(ckpt1)
 ckpt2_metrics = ckpt_metrics(ckpt2)
         
-plt.plot(range(1,10), ckpt1_metrics[0], 'g', label='Training loss')
-plt.plot(range(1,10), ckpt1_metrics[1], 'b', label='validation loss')
-plt.title('Training and Validation loss')
-plt.xlabel('Epochs')
-plt.ylabel('Loss')
-plt.legend()
-plt.show()
-
-plt.plot(range(1,27), ckpt2_metrics[0], 'g', label='Training loss')
-plt.plot(range(1,27), ckpt2_metrics[1], 'b', label='validation loss')
-plt.title('Training and Validation loss')
-plt.xlabel('Epochs')
-plt.ylabel('Loss')
-plt.legend()
-plt.show()
+plot(ckpt1_metrics[0], ckpt1_metrics[1])
+plot(ckpt2_metrics[0], ckpt2_metrics[1])
