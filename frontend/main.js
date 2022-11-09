@@ -1,30 +1,118 @@
+// import  '/node_modules/downloadjs/download.js';
+
 // https://www.geeksforgeeks.org/how-to-record-and-play-audio-in-javascript/
 let audioIN = { audio: true };
 //  audio is true, for recording
 
 
 
-let phrases = ["She sells sea shells by the sea shore.", "Hello, it is nice to meet you.", "I regret nothing"];
+let phrases = ["Hello Vanet, how are you today", "I will be back shortly, I've just got to pop to the shops.", "No more mr nice guy"];
+// "We've got to get it together", "You've got to be in the top 5 most beautiful people I've ever seen", "Never gonna give you up, never gonna let you down"];
 let phraseIndex = 0;
 
 let recordings = [];
 
-function nextPhrase ()  {
-    document.getElementById('next_button').classList.add('inactive');
-    document.getElementById('next_button').disabled = true;
-    document.getElementById('audioPlay').src = "";
-    console.log(phraseIndex);
-    console.log(recordings);
-    if(phraseIndex == phrases.length) {
-        document.getElementById("recordbox").classList.add("hide");
-        document.getElementById("newUser").classList.remove("hide");
+function train () {
+  let data = new FormData();
+  data.append('file', new File([recordings[0]], recordings.length + ".wav"))
+  const options = {
+    method: 'POST',
+    mode: 'cors', // no-cors, *cors, same-origin
+    headers : {
+      'Authorization': token,
+    },
+    body: data
+  };
+  fetch("http://localhost:5050/train", options).then((data) => {
+    if (data.error) {
+      error(data.error);
     }
-    else {
-        document.getElementById("currPhrase").innerText = '"' + phrases[phraseIndex] + '"';
-        phraseIndex++;
-    }
-    
+  });
 }
+
+function registerUser () {
+  console.log(token)
+  const options = {
+    method: 'POST',
+    mode: 'cors', // no-cors, *cors, same-origin
+    headers : {
+      'Authorization': token,
+    }
+  };
+  const controller = new AbortController()
+
+  // 5 second timeout:
+
+  // const timeoutId = setTimeout(() => controller.abort(), 5000)
+
+  fetch("http://localhost:5050/register", options).then((data) => {
+    if (data.error) {
+      error(data.error);
+    }
+  });
+}
+
+
+const download = async(blob, filename) => {
+  let link = document.createElement('a');
+  link.download = filename;
+ 
+  // let url = URL.createObjectURL();
+  link.href = blob;
+
+  await link.click();
+ 
+  await URL.revokeObjectURL(link.href);
+}
+
+function inputHandler(){
+  console.log("kjansdknasjkdn")
+  if (document.getElementById('userName').value == '') {
+    document.getElementById('select_name').classList.add('inactive');
+    console.log("kjansdknasjkdn")
+    document.getElementById('select_name').disabled = true;
+  } 
+  else {
+    document.getElementById('select_name').classList.remove('inactive');
+    document.getElementById('select_name').disabled = false;
+  }
+  
+}
+
+document.getElementById('select_name').disabled = true;
+
+let userNameButt = document.getElementById('userName');
+userNameButt.addEventListener('input', inputHandler);
+userNameButt.addEventListener('propertychange', inputHandler);
+
+
+function nextPhrase ()  {
+  document.getElementById("start_recording").classList.remove('hide');
+  document.getElementById("stop_recording").classList.add('hide');
+  document.getElementById('next_button').classList.add('inactive');
+  document.getElementById('next_button').disabled = true;
+  document.getElementById('audioPlay').src = "";
+  console.log(phraseIndex);
+  console.log(token);
+  console.log(recordings);
+  
+  if(phraseIndex == phrases.length) {
+      document.getElementById("recordbox").classList.add("hide");
+      document.getElementById("newUser").classList.remove("hide");
+      // for (var i=0; i< recordings.length; i++) {
+      //   console.log("ppppas");
+      //   console.log(recordings[i]);
+        // (recordings[i],'/newfile/recording' +i +".wav");
+      // }
+      train();
+
+  }
+  else {
+      document.getElementById("currPhrase").innerText = '"' + phrases[phraseIndex] + '"';
+      phraseIndex++;
+  }  
+}
+
 
 // Access the permission for use
 // the microphone
@@ -32,8 +120,6 @@ navigator.mediaDevices.getUserMedia(audioIN)
   // 'then()' method returns a Promise
   .then(function (mediaStreamObj) {
     //For Verification
-
-
 
 
     // For recording segments
@@ -71,14 +157,13 @@ navigator.mediaDevices.getUserMedia(audioIN)
   });
   
   document.getElementById("stop_recordingv").addEventListener('click', () => {
-      document.getElementById('start_recordingv').classList.remove('hide');
-      document.getElementById('stop_recordingv').classList.add('hide');
+      
       // document.getElementById('next_button').classList.remove('inactive');
       // document.getElementById('next_button').disabled = false;
       mediaRecorder.stop();
 
 
-  })
+  });
 
     // If audio data available then push
     // it to the chunk array
@@ -108,12 +193,16 @@ navigator.mediaDevices.getUserMedia(audioIN)
           .createObjectURL(audioData);
 
       if (document.getElementById("verifybox").classList.contains("hide")) {
-        recordings.push(audioSrc);
+        recordings.push(audioData);
+        // recordings.push(audioSrc);
+        // recordings.push(new File([audioSrc], recordings.length + ".wav"));
       }
       else {
         console.log("Otto accepts");
         document.getElementById("verifybox").classList.add("hide");
         document.getElementById("welcome").classList.remove("hide");
+        document.getElementById('start_recordingv').classList.remove('hide');
+        document.getElementById('stop_recordingv').classList.add('hide');
         read("Welcome Master Damian. It is nice to see you. You look very handsome today <3") 
       }
       // Pass the audio url to the 2nd video tag
@@ -125,25 +214,7 @@ navigator.mediaDevices.getUserMedia(audioIN)
     console.log(err.name, err.message);
   });
 
-  document.getElementById("register-new-user").addEventListener("click", () => {
-    phraseIndex = 0;
-    document.getElementById("recordbox").classList.remove("hide");
-    document.getElementById("verifybox").classList.add("hide");
-    nextPhrase();
-    
-  })
-
-  document.getElementById("backToMenu").addEventListener("click", () => {
-    document.getElementById("verifybox").classList.remove("hide");
-    document.getElementById("newUser").classList.add("hide");
-    
-  });
-
-  document.getElementById("next_button").addEventListener("click", () => {
-    nextPhrase();
-});
-
-
+/*
 
 function getVoices() {
   let voices = speechSynthesis.getVoices();
@@ -165,14 +236,13 @@ function speak(text, voice, rate, pitch, volume) {
   speakData.rate = rate; // From 0.1 to 10
   speakData.pitch = pitch; // From 0 to 2
   speakData.text = text;
-  speakData.lang = 'fr';
+  speakData.lang = 'de';
   speakData.voice = voice;
   
   // pass the SpeechSynthesisUtterance to speechSynthesis.speak to start speaking 
   speechSynthesis.speak(speakData);
 
 }
-
 
 let voices = getVoices();
 let rate = 1, pitch = 1.3, volume = 1;
@@ -197,4 +267,34 @@ function read (text) {
     speak(text, voices[1], rate, pitch, volume );
   }, 1000);
 }
+
+ */
+let token = null;
+
+document.getElementById("register-new-user").addEventListener("click", () => {
+  phraseIndex = 0;
+  document.getElementById("selectNameBox").classList.remove("hide");
+  document.getElementById("verifybox").classList.add("hide");
+  
+})
+
+document.getElementById("select_name").addEventListener("click", () => {
+  token = document.getElementById("userName").value;
+  console.log(token);
+  registerUser();
+  nextPhrase();
+  document.getElementById("recordbox").classList.remove("hide");
+  document.getElementById("selectNameBox").classList.add("hide");
+  
+})
+
+document.getElementById("backToMenu").addEventListener("click", () => {
+  document.getElementById("verifybox").classList.remove("hide");
+  document.getElementById("newUser").classList.add("hide");
+  
+});
+
+document.getElementById("next_button").addEventListener("click", () => {
+  nextPhrase();
+});
 
