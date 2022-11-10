@@ -3,7 +3,6 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# Data 
 speaker_verif/data/
 speaker_verif/content/
 speaker_verif/results/

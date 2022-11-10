@@ -54,9 +54,9 @@ def prepare_user_data(
     """
 
     # Check if this phase is already done (if so, skip it)
-    if skip(save_json_train, save_json_valid, save_json_test):
-        logger.info("Preparation completed in previous run, skipping.")
-        return
+    # if skip(save_json_train, save_json_valid, save_json_test):
+    #     logger.info("Preparation completed in previous run, skipping.")
+    #     return
 
     # If the dataset doesn't exist yet, download it
     train_folder = os.path.join(data_folder, "user_data")

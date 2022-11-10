@@ -1,16 +1,18 @@
 
 html,body{
     width: 100%;
-    background-color: rgb(232, 232, 232);
-    
+    background-color: rgb(49, 166, 190) !important;
+    font-family: 'Segoe UI', 'Comic Sans MS';
+    /* font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */ */
 }
 
 h1 {
+    color: white !important;
     text-align: center;
 }
 
 .hide {
-    display: none;
+    display : none !important;
 }
 
 
@@ -27,10 +29,14 @@ h1 {
 
 #stop_recording, #stop_recordingv {
     color:red;
+    fill: green;
     /* font-size: 60pt; */
     margin: 2%;
 }
-
+/* 
+​path {
+    
+  }​ */
 
 
 #record-clips {
@@ -45,11 +51,12 @@ h1 {
 
 .box {
     /* position: absolute; */
-    background-color: white;
+    background-color: rgb(58, 135, 198);
+    color:white;
     text-align: center;
-    height: 400px;
+    height: 450px;
     margin: auto;
-    padding: 2%;
+    padding: 1%;
     width: 80%;
     /* left:25%;
     border: 1px solid rgb(58, 58, 58); */
@@ -58,14 +65,23 @@ h1 {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
+#userName {
+    color:black;
+}
+
+#recordingsCounter, #recordingCount{
+    color: white !important;
+    font-size: 14pt;
+}
 
 button {
     font-size: 20pt;
-    margin: 2%;
+    margin: 2% !important;
     padding: 1% 2% 1% 2%;
     border: 0;
     color: white;
     background-color: rgb(55, 158, 134);
+    font-family: 'Segoe UI'
 }
 
 .inactive{
@@ -79,3 +95,74 @@ button {
     user-select: none; /* Standard syntax */
     -webkit-tap-highlight-color: rgba(232, 232, 232, 0);
   }
+
+  .rec:hover {
+    cursor: pointer;
+  }
+
+  button:hover{
+    cursor: pointer;
+    
+  }
+
+  
+#start_recordingv:hover, #start_recording:hover  {
+    color:rgb(169, 169, 169);
+    /* display: block; */
+    /* top: 30px; */
+    animation:mymove 0.8s linear;
+    -moz-animation:mymove 0.8s linear; /* Firefox */
+    -webkit-animation:mymove 0.8s linear; /* Safari and Chrome */
+    -o-animation:mymove 0.8s linear; /* Opera */
+    -ms-animation:mymove 0.8s linear; /* IE */
+}
+
+  
+#stop_recordingv:hover, #stop_recording:hover  {
+    color:rgb(168, 0, 0);
+    /* display: block; */
+    /* top: 30px; */
+    position:relative;
+     height: 20px;
+    animation:mymove 0.8s linear;
+    -moz-animation:mymove 0.8s linear; /* Firefox */
+    -webkit-animation:mymove 0.8s linear; /* Safari and Chrome */
+    -o-animation:mymove 0.8s linear; /* Opera */
+    -ms-animation:mymove 0.8s linear; /* IE */
+}
+
+#start_recordingv, #start_recording {
+    position:relative;
+     height: 20px;
+}
+
+.recording-box{
+    height: 140px;
+    /* background-color: white; */
+    width: 120px;
+    margin: auto;
+}
+
+
+
+@-webkit-keyframes mymove /* Safari and Chrome */
+{
+0%   {top:0px;}
+10%  {top:3px;}
+40%  {top:15px;}
+60%  {top:5px;}
+80%  {top:15px;}
+100% {top:0px;}
+}
+
+#logo {
+    width: 100px;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    justify-content: space-around;
+    width: 50%;
+}

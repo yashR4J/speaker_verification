@@ -1,4 +1,4 @@
-# Generated 2022-11-07 from:
+# Generated 2022-11-10 from:
 # /mnt/c/Users/yashr/Desktop/COMP9444/voice_modulator/speaker_verif/custom_train.yaml
 # yamllint disable
 # #################################
@@ -8,6 +8,9 @@
 # Author:
 #  * Mirco Ravanelli 2021
 # #################################
+
+# pretrain folders:
+pretrained_path: speechbrain/spkrec-ecapa-voxceleb # results/speaker_id/1986/save/pretrained # CKPT+2022-11-03+16-34-31+00/
 
 # Seed needs to be set at top of yaml, before objects with parameters are made
 seed: 1986
@@ -42,20 +45,23 @@ error_stats: !name:speechbrain.utils.metric_stats.MetricStats
 
 ckpt_interval_minutes: 15 # save checkpoint every N min
 
-# Feature parameters
-n_mels: 23
-
 # Training Parameters
+lr: 0.001
+lr_final: 0.0001
 sample_rate: 16000
 number_of_epochs: 35
 batch_size: 16
-lr_start: 0.001
-lr_final: 0.0001
-n_classes: 28
+
+# Feature parameters
+n_mels: 80
+left_frames: 0
+right_frames: 0
+deltas: false
+
+out_n_neurons: 7206 # based on the number of speakers (Vox-Celeb has 7205)
 emb_dim: 512 # dimensionality of the embeddings
 dataloader_options:
   batch_size: 16
-
 
 # Added noise and reverb come from OpenRIR dataset, automatically
 # downloaded and prepared with this Environmental Corruption class.
@@ -75,39 +81,43 @@ augmentation: &id003 !new:speechbrain.lobes.augment.TimeDomainSpecAugment
 
 # Feature extraction
 compute_features: &id001 !new:speechbrain.lobes.features.Fbank
-  n_mels: 23
+  n_mels: 80
+  left_frames: 0
+  right_frames: 0
+  deltas: false
 
 # Mean and std normalization of the input features
 mean_var_norm: &id006 !new:speechbrain.processing.features.InputNormalization
-
-# This optimizer will be constructed by the Brain class after all parameters
-# are moved to the correct device. Then it will be added to the checkpointer.
   norm_type: sentence
   std_norm: false
 
-# To design a custom model, either just edit the simple CustomModel
-# class that's listed here, or replace this `!new` call with a line
-# pointing to a different file you've defined.
-embedding_model: &id004 !new:custom_model.Xvector
-  in_channels: 23
-  activation: !name:torch.nn.LeakyReLU
-  tdnn_blocks: 5
-  tdnn_channels: [512, 512, 512, 512, 1500]
-  tdnn_kernel_sizes: [5, 3, 3, 1, 1]
-  tdnn_dilations: [1, 2, 3, 1, 1]
-  lin_neurons: 512
+mean_var_norm_emb: &id007 !new:speechbrain.processing.features.InputNormalization
 
-classifier: &id005 !new:custom_model.Classifier
-  input_shape: [null, null, 512]
+# This optimizer will be constructed by the Brain class after all parameters
+# are moved to the correct device. Then it will be added to the checkpointer.
+  norm_type: global
+  std_norm: false
+
+embedding_model: &id004 !new:speechbrain.lobes.models.ECAPA_TDNN.ECAPA_TDNN
+  input_size: 80
+  channels: [1024, 1024, 1024, 1024, 3072]
+  kernel_sizes: [5, 3, 3, 3, 1]
+  dilations: [1, 2, 3, 4, 1]
+  attention_channels: 128
+  lin_neurons: 192
+
+classifier: &id005 !new:speechbrain.lobes.models.Xvector.Classifier
+  input_shape: [null, null, 192]
   activation: !name:torch.nn.LeakyReLU
   lin_blocks: 1
   lin_neurons: 512
-  out_neurons: 28
+  out_neurons: 7206
 
 # The first object passed to the Brain class is this "Epoch Counter"
 # which is saved by the Checkpointer so that training can be resumed
 # if it gets interrupted at any point.
-epoch_counter: &id007 !new:speechbrain.utils.epoch_loop.EpochCounter
+epoch_counter: &id008 !new:speechbrain.utils.epoch_loop.EpochCounter
+
   limit: 35
 
 # Objects in "modules" dict will have their parameters moved to the correct
@@ -119,8 +129,10 @@ modules:
   embedding_model: *id004
   classifier: *id005
   mean_var_norm: *id006
+  mean_var_norm_emb: *id007
 opt_class: !name:torch.optim.Adam
   lr: 0.001
+  weight_decay: 0.000002
 
 # This function manages learning rate annealing over the epochs.
 # We here use the simple lr annealing method that linearly decreases
@@ -139,4 +151,11 @@ checkpointer: !new:speechbrain.utils.checkpoints.Checkpointer
     embedding_model: *id004
     classifier: *id005
     normalizer: *id006
-    counter: *id007
+    counter: *id008
+label_encoder: !new:speechbrain.dataio.encoder.CategoricalEncoder
+
+pretrainer: !new:speechbrain.utils.parameter_transfer.Pretrainer
+  loadables:
+    embedding_model: *id004
+  paths:
+    embedding_model: speechbrain/spkrec-ecapa-voxceleb/embedding_model.ckpt

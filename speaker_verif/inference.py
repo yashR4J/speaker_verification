@@ -15,7 +15,7 @@ from speechbrain.pretrained import EncoderClassifier, SpeakerRecognition
 #     shutil.rmtree(dest_path)
     
 # subprocess.run(f"mkdir -p {dest_path}", shell=True)
-# subprocess.run(f"cp {src_path}hparams_inference.yaml {dest_path}", shell=True)
+# subprocess.run(f"cp hparams_inference.yaml {dest_path}", shell=True)
 # subprocess.run(f"cp {src_path}label_encoder.txt {dest_path}", shell=True)
 # list_of_files = glob.glob(src_path + "CKPT*")
 # ckpt_path = max(list_of_files, key=os.path.getctime)
@@ -37,14 +37,14 @@ me2 = './data/user_data/raw/5317349/1/5317349-0007.wav'
 
 signal, fs = torchaudio.load(sample)
 emb = classifier.encode_batch(signal)
-# try:
-prediction = classifier.classify_batch(signal)
-# except KeyError:
-#     prediction = None
+try:
+    prediction = classifier.classify_batch(signal)
+except KeyError:
+    prediction = None
     
 print(emb, prediction)
 
-signal, fs = torchaudio.load(file1)
+signal, fs = torchaudio.load(me2)
 emb2 = classifier.encode_batch(signal)
 try:
     prediction = classifier.classify_batch(signal)
