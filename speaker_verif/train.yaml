@@ -29,6 +29,8 @@ train_annotation: train.json
 valid_annotation: valid.json
 test_annotation: test.json
 
+label_encoder: !new:speechbrain.dataio.encoder.CategoricalEncoder
+
 # The train logger writes training statistics to a file, as well as stdout.
 train_logger: !new:speechbrain.utils.train_logger.FileTrainLogger
     save_file: !ref <train_log>
@@ -53,7 +55,6 @@ emb_dim: 512 # dimensionality of the embeddings
 dataloader_options:
     batch_size: !ref <batch_size>
 
-
 # Added noise and reverb come from OpenRIR dataset, automatically
 # downloaded and prepared with this Environmental Corruption class.
 env_corrupt: !new:speechbrain.lobes.augment.EnvCorrupt
@@ -77,6 +78,10 @@ compute_features: !new:speechbrain.lobes.features.Fbank
 # Mean and std normalization of the input features
 mean_var_norm: !new:speechbrain.processing.features.InputNormalization
     norm_type: sentence
+    std_norm: False
+  
+mean_var_norm_emb: !new:speechbrain.processing.features.InputNormalization
+    norm_type: global
     std_norm: False
 
 # To design a custom model, either just edit the simple CustomModel
@@ -113,6 +118,7 @@ modules:
     embedding_model: !ref <embedding_model>
     classifier: !ref <classifier>
     mean_var_norm: !ref <mean_var_norm>
+    mean_var_norm_emb: !ref <mean_var_norm_emb>
 
 # This optimizer will be constructed by the Brain class after all parameters
 # are moved to the correct device. Then it will be added to the checkpointer.
@@ -137,3 +143,4 @@ checkpointer: !new:speechbrain.utils.checkpoints.Checkpointer
         classifier: !ref <classifier>
         normalizer: !ref <mean_var_norm>
         counter: !ref <epoch_counter>
+        mean_var_norm_emb: !ref <mean_var_norm_emb>

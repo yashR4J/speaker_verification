@@ -229,7 +229,7 @@ def dataio_prep(hparams):
 
     # Initialization of the label encoder. The label encoder assigns to each
     # of the observed label a unique index (e.g, 'spk01': 0, 'spk02': 1, ..)
-    label_encoder = sb.dataio.encoder.CategoricalEncoder()
+    label_encoder = hparams["label_encoder"]
 
     # Define audio pipeline
     @sb.utils.data_pipeline.takes("wav")
@@ -270,6 +270,8 @@ def dataio_prep(hparams):
             output_keys=["id", "sig", "spk_id_encoded"],
         )
 
+    label_encoder.add_unk()
+    
     # Load or compute the label encoder (with multi-GPU DDP support)
     # Please, take a look into the lab_enc_file to see the label to index
     # mapping.

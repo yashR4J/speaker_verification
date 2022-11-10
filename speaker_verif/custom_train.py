@@ -40,6 +40,10 @@ if __name__ == "__main__":
         },
     )
 
+    # Load the pretrained model
+    hparams["pretrainer"].collect_files()
+    hparams["pretrainer"].load_collected(device=run_opts["device"])
+    
     # Create dataset objects "train", "valid", and "test".
     datasets = dataio_prep(hparams)
 
@@ -50,8 +54,8 @@ if __name__ == "__main__":
         hparams=hparams,
         run_opts=run_opts,
         checkpointer=hparams["checkpointer"],
-    )
-
+    )   
+    
     # The `fit()` method iterates the training loop, calling the methods
     # necessary to update the parameters of the model. Since all objects
     # with changing state are managed by the Checkpointer, training can be

@@ -5,6 +5,7 @@ __pycache__/
 
 # Data 
 speaker_verif/data
+speaker_verif/content
 
 # Distribution / packaging
 .Python
