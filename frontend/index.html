@@ -39,17 +39,18 @@
     <button id="select_name" type="button" class="btn btn-success btn-lg inactive" >next</button>
   </div>
   <div id="recordbox" class="box hide">
+      <p id="recordingsCounter"><a id="recordingCount"></a>/10 Samples</p>
       <h2>Read the following phrase:</h2>
       <h3 id="currPhrase">"Phrase for you to read"</h3>
       <div class="recording-box">
         <span id="start_recording" class="rec bi bi-mic "></span>
         <span id="stop_recording" class="rec bi bi-record-btn hide"></span><br class="prevent-select"><br class="prevent-select">
       </div>
-      <!-- <span id="start_recordin" class="record-button bi bi-mic "></span>
-      <span id="stop_recording" class="record-button bi bi-record-btn  hide" ></span> -->
       <audio id="audioPlay" controls></audio>
       <br>
-      <button id="next_button"  class="btn btn-success btn-lg inactive">next</button>
+      <button id="next_button"  class="btn btn-success btn-lg inactive">Next Sample</button>
+      <button id="submit_training" class="btn btn-success btn-lg inactive">Submit</button>
+
     </div>
     <div id="newUser" class="box hide">
         <h2>Your voice is being processed</h2>

@@ -6,32 +6,52 @@ let audioIN = { audio: true };
 
 
 
-let phrases = ["Hello Vanet, how are you today", "I will be back shortly, I've just got to pop to the shops.", "No more mr nice guy"];
-// "We've got to get it together", "You've got to be in the top 5 most beautiful people I've ever seen", "Never gonna give you up, never gonna let you down"];
 let phraseIndex = 0;
 
-let recordings = [];
+let recording = null;
 
-function train () {
+function train (recording) {
   let data = new FormData();
-  data.append('file', new File([recordings[0]], recordings.length + ".wav"))
-  const options = {
-    method: 'POST',
-    mode: 'cors', // no-cors, *cors, same-origin
-    headers : {
-      'Authorization': token,
-    },
-    body: data
-  };
-  fetch("http://localhost:5050/train", options).then((data) => {
-    if (data.error) {
-      error(data.error);
-    }
-  });
+  data.append('file', new File([recording], recordingsCount + ".wav"));
+
+  let post = data;
+ 
+  const url = "http://localhost:5050/train"
+  let xhr = new XMLHttpRequest()
+  
+  xhr.open('POST', url, true);
+  xhr.setRequestHeader('Authorization',  token);
+  xhr.send(post);
+  
+  xhr.onload = function () {
+      if(xhr.status === 201) {
+          console.log("Post successfully created!") 
+      }
+  }
+
 }
 
+// function train (recording) {
+//   let data = new FormData();
+//   data.append('file', new File([recording], recordingsCount + ".wav"));
+//   const options = {
+//     method: 'POST',
+//     // mode: 'cors', // no-cors, *cors, same-origin
+//     headers : {
+//       'Authorization': token,
+//       // "Content-Type": data.contentType,
+//     },
+//     // files: recording,
+//     body: data
+//   };
+//   fetch("http://localhost:5050/train", options).then((data) => {
+//     if (data.error) {
+//       error(data.error);
+//     }
+//   });
+// }
+
 function registerUser () {
-  console.log(token)
   const options = {
     method: 'POST',
     mode: 'cors', // no-cors, *cors, same-origin
@@ -39,15 +59,31 @@ function registerUser () {
       'Authorization': token,
     }
   };
-  const controller = new AbortController()
-
-  // 5 second timeout:
-
-  // const timeoutId = setTimeout(() => controller.abort(), 5000)
-
-  fetch("http://localhost:5050/register", options).then((data) => {
+  fetch("http://localhost:5050/register", options).then((response) => {
+    return response.json();
+  }).then((data) => {
     if (data.error) {
       error(data.error);
+    }
+    else {
+      recordingsCount = data["count"];
+      document.getElementById("recordingCount").innerText = recordingsCount;
+      document.getElementById("start_recording").classList.remove('hide');
+      document.getElementById("stop_recording").classList.add('hide');
+      document.getElementById('next_button').classList.add('inactive');
+      document.getElementById('next_button').disabled = true;
+      document.getElementById('audioPlay').src = "";
+      document.getElementById("recordingCount").innerText = recordingsCount;
+      document.getElementById("currPhrase").innerText = '"' + phrases[recordingsCount] + '"';
+      if (recordingsCount >= 10) {
+        document.getElementById("submit_training").classList.remove('inactive');
+        document.getElementById("submit_training").disabled = false;
+      }
+      else {
+        document.getElementById("submit_training").classList.add('inactive');
+        document.getElementById("submit_training").disabled = true;
+      }
+      
     }
   });
 }
@@ -85,6 +121,44 @@ let userNameButt = document.getElementById('userName');
 userNameButt.addEventListener('input', inputHandler);
 userNameButt.addEventListener('propertychange', inputHandler);
 
+let h = `Hello Vanet, how are you today?
+I will be back shortly, I've just got to pop to the shops.
+No more mr nice guy.
+We've got to get it together.
+You've got to be in the top 5 most beautiful people I've ever seen.
+Never gonna give you up, never gonna let you down.
+I wouldn't have let anything come between us.
+You wouldn't have done that if there had not been something.
+He's afraid of being seen, being found.
+Her maid was standing by the garden gate, looking for her.
+She had done all that was possible.
+It was the seal upon the bond.
+The odds between her and her adversary were even.
+She would have to break her word to Milly.
+She had a light burning in her room till morning, for she was afraid of sleep.
+Her gift, her secret, was powerless now against the pursuer.
+A terrified bird flew out of the hedge, no further than a flight in front of her.
+All this she perceived in a flash, when she had turned the corner.
+As she turned the corner of the wood, she was brought suddenly in sight of the valley.
+Now her fear, which had become almost hatred, was transferred to his person.
+What she saw was the empty shell of him.
+She went on and came to the gate of the wood.
+She paused on the bridge, and looked down the valley.
+It was perfect, following a perfect day.
+She waited for her hour between sunset and twilight.
+She told herself that, after all, her fear had done no harm.
+She was bound to accept his statement.
+She doesn't care a rap about me.
+They had sat down on the couch in the corner so that they faced each other.
+She begged him to write and tell her that he was well.
+She refused to hold him even by a thread.
+Hey Jane, did you get the mail yet?	
+He was absent at roll call.	
+She was hit by a car.
+Tom isn't watching TV now.`
+
+var phrases = h.split("\n");
+
 
 function nextPhrase ()  {
   document.getElementById("start_recording").classList.remove('hide');
@@ -92,25 +166,19 @@ function nextPhrase ()  {
   document.getElementById('next_button').classList.add('inactive');
   document.getElementById('next_button').disabled = true;
   document.getElementById('audioPlay').src = "";
-  console.log(phraseIndex);
-  console.log(token);
-  console.log(recordings);
-  
-  if(phraseIndex == phrases.length) {
-      document.getElementById("recordbox").classList.add("hide");
-      document.getElementById("newUser").classList.remove("hide");
-      // for (var i=0; i< recordings.length; i++) {
-      //   console.log("ppppas");
-      //   console.log(recordings[i]);
-        // (recordings[i],'/newfile/recording' +i +".wav");
-      // }
-      train();
+  // console.log(phraseIndex);
+  // console.log(token);
+  // console.log(recordings);
+  recordingsCount++;
 
+  document.getElementById("recordingCount").innerText = recordingsCount;
+  document.getElementById("currPhrase").innerText = '"' + phrases[recordingsCount] + '"';
+
+  if(recordingsCount >= 10) {
+    document.getElementById("submit_training").classList.remove('inactive');
+    document.getElementById("submit_training").disabled = false;
   }
-  else {
-      document.getElementById("currPhrase").innerText = '"' + phrases[phraseIndex] + '"';
-      phraseIndex++;
-  }  
+
 }
 
 
@@ -193,7 +261,7 @@ navigator.mediaDevices.getUserMedia(audioIN)
           .createObjectURL(audioData);
 
       if (document.getElementById("verifybox").classList.contains("hide")) {
-        recordings.push(audioData);
+        recording =audioData;
         // recordings.push(audioSrc);
         // recordings.push(new File([audioSrc], recordings.length + ".wav"));
       }
@@ -278,14 +346,16 @@ document.getElementById("register-new-user").addEventListener("click", () => {
   
 })
 
-document.getElementById("select_name").addEventListener("click", () => {
+let recordingsCount = 0;
+
+document.getElementById("select_name").addEventListener("click", (event) => {
   token = document.getElementById("userName").value;
   console.log(token);
-  registerUser();
-  nextPhrase();
+  
   document.getElementById("recordbox").classList.remove("hide");
   document.getElementById("selectNameBox").classList.add("hide");
-  
+  registerUser();
+
 })
 
 document.getElementById("backToMenu").addEventListener("click", () => {
@@ -294,7 +364,9 @@ document.getElementById("backToMenu").addEventListener("click", () => {
   
 });
 
-document.getElementById("next_button").addEventListener("click", () => {
+document.getElementById("next_button").addEventListener("click", (e) => {
+  train(recording);
   nextPhrase();
+  // e.preventDefault()
 });
 

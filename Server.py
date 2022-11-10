@@ -18,23 +18,13 @@ def train():
     
     token = request.headers.get('Authorization')
     print(token)
-    file.save("data/owwwwwww.wav")
+    file.save("data/" +token +'/' + file.filename)
 
     response = jsonify("File received and saved!")
     response.headers.add('Access-Control-Allow-Origin', '*')
 
     return dumps({})
-    # print(file)
-    # data = request.get_json()
-    # print("CHicken")
-    # print(data['files'])
-    # uploaded_file = request.files['files']
-    # print("BBBBBBBBBB")
-    # if uploaded_file.filename != '':
-    #     uploaded_file.save(uploaded_file.filename)
-    # data = request.get_json()
-    # ret = register_user(data['username'], data['password'])
-    # return redirect(url_for('index'))
+
 
 @APP.route("/register", methods=['POST'])
 def register():
@@ -47,7 +37,10 @@ def register():
     else:
         parent_dir = "data"
         path = os.path.join(parent_dir, user)
+        # for some reason making directory causes a page reload on the 
+        # fetch request????
         os.mkdir(path)
+        count = 0
 
     return dumps({'count': count})
 

@@ -54,7 +54,7 @@ h1 {
     background-color: rgb(58, 135, 198);
     color:white;
     text-align: center;
-    height: 400px;
+    height: 450px;
     margin: auto;
     padding: 1%;
     width: 80%;
@@ -67,6 +67,11 @@ h1 {
 
 #userName {
     color:black;
+}
+
+#recordingsCounter, #recordingCount{
+    color: white !important;
+    font-size: 14pt;
 }
 
 button {
