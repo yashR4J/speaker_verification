@@ -27,6 +27,7 @@ Authors
 import os
 import sys
 import torch
+import torchaudio
 import speechbrain as sb
 from hyperpyyaml import load_hyperpyyaml
 from mini_librispeech_prepare import prepare_mini_librispeech
@@ -74,7 +75,10 @@ class SpkIdBrain(sb.Brain):
             The current stage of training.
         """
         wavs, lens = wavs
-
+        # print(wavs.size(), lens.size())
+        # print(wavs, lens)
+        # exit(1)
+        
         # Add augmentation if specified. In this version of augmentation, we
         # concatenate the original and the augment batches in a single bigger
         # batch. This is more memory-demanding, but helps to improve the
@@ -225,7 +229,7 @@ def dataio_prep(hparams):
 
     # Initialization of the label encoder. The label encoder assigns to each
     # of the observed label a unique index (e.g, 'spk01': 0, 'spk02': 1, ..)
-    label_encoder = sb.dataio.encoder.CategoricalEncoder()
+    label_encoder = hparams["label_encoder"]
 
     # Define audio pipeline
     @sb.utils.data_pipeline.takes("wav")
@@ -233,7 +237,11 @@ def dataio_prep(hparams):
     def audio_pipeline(wav):
         """Load the signal, and pass it and its length to the corruption class.
         This is done on the CPU in the `collate_fn`."""
+        info = torchaudio.info(wav)
         sig = sb.dataio.dataio.read_audio(wav)
+        # multiple channels
+        if info.num_channels > 1:
+            sig = torch.mean(sig, dim=1)
         return sig
 
     # Define label pipeline:
@@ -262,6 +270,8 @@ def dataio_prep(hparams):
             output_keys=["id", "sig", "spk_id_encoded"],
         )
 
+    label_encoder.add_unk()
+    
     # Load or compute the label encoder (with multi-GPU DDP support)
     # Please, take a look into the lab_enc_file to see the label to index
     # mapping.
@@ -338,14 +348,5 @@ if __name__ == "__main__":
         test_loader_kwargs=hparams["dataloader_options"],
     )
 
-    # FOR INFERENCE
-    # Trainer initialization
-    transcripts = spk_id_brain.transcribe_dataset(
-        dataset=datasets["your_dataset"], # Must be obtained from the dataio_function
-        min_key="WER", # We load the model with the lowest WER
-        loader_kwargs=hparams["transcribe_dataloader_opts"], # opts for the dataloading
-    )
-
-    print(transcripts)
 
 
