@@ -7,7 +7,7 @@
 # #################################
 
 # pretrain folders:
-pretrained_path: speechbrain/spkrec-ecapa-voxceleb # results/speaker_id/1986/save/pretrained # CKPT+2022-11-03+16-34-31+00/
+pretrained_path: speechbrain/spkrec-ecapa-voxceleb
 
 # Seed needs to be set at top of yaml, before objects with parameters are made
 seed: 1986
@@ -55,7 +55,7 @@ left_frames: 0
 right_frames: 0
 deltas: False
 
-out_n_neurons: 7206 # based on the number of speakers (Vox-Celeb has 7205)
+out_n_neurons: 1000
 emb_dim: 512 # dimensionality of the embeddings
 dataloader_options:
     batch_size: !ref <batch_size>
@@ -74,7 +74,7 @@ env_corrupt: !new:speechbrain.lobes.augment.EnvCorrupt
 # # A small speed change help to improve the performance of speaker-id as well.
 augmentation: !new:speechbrain.lobes.augment.TimeDomainSpecAugment
     sample_rate: !ref <sample_rate>
-    speeds: [95, 100, 105]
+    speeds: [90, 95, 100, 105, 110]
 
 # Feature extraction
 compute_features: !new:speechbrain.lobes.features.Fbank
@@ -86,10 +86,6 @@ compute_features: !new:speechbrain.lobes.features.Fbank
 # Mean and std normalization of the input features
 mean_var_norm: !new:speechbrain.processing.features.InputNormalization
     norm_type: sentence
-    std_norm: False
-
-mean_var_norm_emb: !new:speechbrain.processing.features.InputNormalization
-    norm_type: global
     std_norm: False
 
 embedding_model: !new:speechbrain.lobes.models.ECAPA_TDNN.ECAPA_TDNN
@@ -122,7 +118,6 @@ modules:
     embedding_model: !ref <embedding_model>
     classifier: !ref <classifier>
     mean_var_norm: !ref <mean_var_norm>
-    mean_var_norm_emb: !ref <mean_var_norm_emb>
 
 # This optimizer will be constructed by the Brain class after all parameters
 # are moved to the correct device. Then it will be added to the checkpointer.
