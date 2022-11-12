@@ -291,9 +291,12 @@ if __name__ == "__main__":
     )
 
     # Load the pretrained model
-    hparams["pretrainer"].collect_files()
-    hparams["pretrainer"].load_collected(device=run_opts["device"])
-    
+    if "pretrainer" in hparams:
+        hparams["pretrainer"].collect_files()
+        hparams["pretrainer"].load_collected(device=run_opts["device"])
+    else:
+        print("No pretrained model found, training from scratch.")
+        
     # Create dataset objects "train", "valid", and "test".
     datasets = dataio_prep(hparams)
 
