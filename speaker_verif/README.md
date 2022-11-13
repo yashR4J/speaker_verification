@@ -6,9 +6,7 @@ data. The data we use is from Mini Librispeech + OpenRIR.
 
 There are seven files here:
 
-* `train.py`: the main code file, outlines the entire training process.
-* `custom_train.py`: adapted code from train.py for training process on pretrained model.
-* `train.yaml`: the hyperparameters file, sets all parameters of execution.
+* `custom_train.py`: adapted code from speech brain for training process on pretrained model.
 * `custom_train.yaml`: another hyperparameters file, this time for the transfer learning, sets all parameters of execution.
 * `custom_model.py`: A file containing the definition of a PyTorch module (neural network model).
 * `mini_librispeech_prepare.py`: If necessary, downloads and prepares data manifests.
@@ -22,7 +20,6 @@ and three json files (after training is completed):
 To train the speaker-id model, just execute the following on the command-line:
 
 ```bash
-python train.py train.yaml
 python custom_train.py custom_train.yaml
 ```
 (Try each command with ```--device='cpu'``` if it does not work)
