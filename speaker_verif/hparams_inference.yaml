@@ -11,7 +11,7 @@ pretrained_path: /content/best_model/
 
 # Model parameters
 sample_rate: 16000
-out_n_neurons: 2 # based on the number of speakers
+out_n_neurons: 1000 
 emb_dim: 512 # dimensionality of the embeddings
 
 # Feature parameters
@@ -49,10 +49,6 @@ classifier: !new:speechbrain.lobes.models.Xvector.Classifier
   
 label_encoder: !new:speechbrain.dataio.encoder.CategoricalEncoder
 
-mean_var_norm_emb: !new:speechbrain.processing.features.InputNormalization
-    norm_type: global
-    std_norm: False
-
 # Objects in "modules" dict will have their parameters moved to the correct
 # device, as well as having train()/eval() called on them by the Brain class.
 modules:
@@ -60,7 +56,6 @@ modules:
     embedding_model: !ref <embedding_model>
     classifier: !ref <classifier>
     mean_var_norm: !ref <mean_var_norm>
-    mean_var_norm_emb: !ref <mean_var_norm_emb>
 
 pretrainer: !new:speechbrain.utils.parameter_transfer.Pretrainer
     loadables:

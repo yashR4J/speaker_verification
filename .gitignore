@@ -3,11 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-
+speaker_verif/model_checkpoints/
 speaker_verif/data/
 speaker_verif/content/
 speaker_verif/results/
-
 
 # Distribution / packaging
 .Python
