@@ -96,11 +96,8 @@ embedding_model: !new:speechbrain.lobes.models.ECAPA_TDNN.ECAPA_TDNN
     attention_channels: 128
     lin_neurons: 192
 
-classifier: !new:speechbrain.lobes.models.Xvector.Classifier
-    input_shape: [null, null, 192]
-    activation: !name:torch.nn.LeakyReLU
-    lin_blocks: 1
-    lin_neurons: 512
+classifier: !new:speechbrain.lobes.models.ECAPA_TDNN.Classifier
+    input_size: 192
     out_neurons: !ref <out_n_neurons>
 
 # The first object passed to the Brain class is this "Epoch Counter"
