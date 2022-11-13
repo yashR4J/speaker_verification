@@ -3,6 +3,7 @@
 import os
 import sys
 import torch
+import torchaudio
 import speechbrain as sb
 from hyperpyyaml import load_hyperpyyaml
 from user_data_prepare import prepare_user_data
