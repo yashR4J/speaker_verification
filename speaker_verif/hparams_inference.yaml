@@ -11,8 +11,8 @@ pretrained_path: /content/best_model/
 
 # Model parameters
 sample_rate: 16000
-out_n_neurons: 1000 
-emb_dim: 512 # dimensionality of the embeddings
+out_n_neurons: 100 
+emb_dim: 192 # dimensionality of the embeddings
 
 # Feature parameters
 n_mels: 80
@@ -38,13 +38,13 @@ embedding_model: !new:speechbrain.lobes.models.ECAPA_TDNN.ECAPA_TDNN
     kernel_sizes: [5, 3, 3, 3, 1]
     dilations: [1, 2, 3, 4, 1]
     attention_channels: 128
-    lin_neurons: 192
+    lin_neurons: !ref <emb_dim>
 
 classifier: !new:speechbrain.lobes.models.Xvector.Classifier
-    input_shape: [null, null, 192]
+    input_shape: [null, null, !ref <emb_dim>]
     activation: !name:torch.nn.LeakyReLU
     lin_blocks: 1
-    lin_neurons: 512
+    lin_neurons: !ref <emb_dim>
     out_neurons: !ref <out_n_neurons>
   
 label_encoder: !new:speechbrain.dataio.encoder.CategoricalEncoder

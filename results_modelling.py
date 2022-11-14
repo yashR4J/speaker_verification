@@ -44,8 +44,8 @@ def plot(training_loss, validation_loss):
     plt.legend()
     plt.show()
     
-ckpt1_metrics = ckpt_metrics(ckpt1)
-# ckpt2_metrics = ckpt_metrics(ckpt2)
+# ckpt1_metrics = ckpt_metrics(ckpt1)
+ckpt2_metrics = ckpt_metrics(ckpt2)
         
-plot(ckpt1_metrics[0], ckpt1_metrics[1])
-# plot(ckpt2_metrics[0], ckpt2_metrics[1])
+# plot(ckpt1_metrics[0], ckpt1_metrics[1])
+plot(ckpt2_metrics[0], ckpt2_metrics[1])
