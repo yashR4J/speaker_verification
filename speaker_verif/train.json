@@ -1,42 +1,42 @@
 {
-  "5317349-0005": {
-    "wav": "{data_root}/user_data/raw/5317349/1/5317349-0005.wav",
-    "length": 13.312,
-    "spk_id": "5317349"
+  "pls": {
+    "wav": "{data_root}\\./data\\user_data\\Damian\\Damian-batchno-1\\pls.wav",
+    "length": 35.84,
+    "spk_id": "pls"
   },
-  "5317349-0003": {
-    "wav": "{data_root}/user_data/raw/5317349/1/5317349-0003.wav",
-    "length": 10.752,
-    "spk_id": "5317349"
+  "pls7": {
+    "wav": "{data_root}\\./data\\user_data\\Damian\\Damian-batchno-1\\pls7.wav",
+    "length": 35.84,
+    "spk_id": "pls7"
   },
-  "5317349-0006": {
-    "wav": "{data_root}/user_data/raw/5317349/1/5317349-0006.wav",
-    "length": 9.216,
-    "spk_id": "5317349"
+  "pls8": {
+    "wav": "{data_root}\\./data\\user_data\\Damian\\Damian-batchno-1\\pls8.wav",
+    "length": 35.84,
+    "spk_id": "pls8"
   },
-  "5317349-0009": {
-    "wav": "{data_root}/user_data/raw/5317349/1/5317349-0009.wav",
-    "length": 8.192,
-    "spk_id": "5317349"
+  "pls4": {
+    "wav": "{data_root}\\./data\\user_data\\Damian\\Damian-batchno-1\\pls4.wav",
+    "length": 35.84,
+    "spk_id": "pls4"
   },
-  "5317349-0004": {
-    "wav": "{data_root}/user_data/raw/5317349/1/5317349-0004.wav",
-    "length": 13.312,
-    "spk_id": "5317349"
+  "pls6": {
+    "wav": "{data_root}\\./data\\user_data\\Damian\\Damian-batchno-1\\pls6.wav",
+    "length": 35.84,
+    "spk_id": "pls6"
   },
-  "5317349-0007": {
-    "wav": "{data_root}/user_data/raw/5317349/1/5317349-0007.wav",
-    "length": 10.496,
-    "spk_id": "5317349"
+  "pls5": {
+    "wav": "{data_root}\\./data\\user_data\\Damian\\Damian-batchno-1\\pls5.wav",
+    "length": 35.84,
+    "spk_id": "pls5"
   },
-  "5317349-0000": {
-    "wav": "{data_root}/user_data/raw/5317349/1/5317349-0000.wav",
-    "length": 14.72,
-    "spk_id": "5317349"
+  "pls1": {
+    "wav": "{data_root}\\./data\\user_data\\Damian\\Damian-batchno-1\\pls1.wav",
+    "length": 35.84,
+    "spk_id": "pls1"
   },
-  "5317349-0001": {
-    "wav": "{data_root}/user_data/raw/5317349/1/5317349-0001.wav",
-    "length": 9.216,
-    "spk_id": "5317349"
+  "pls3": {
+    "wav": "{data_root}\\./data\\user_data\\Damian\\Damian-batchno-1\\pls3.wav",
+    "length": 35.84,
+    "spk_id": "pls3"
   }
 }

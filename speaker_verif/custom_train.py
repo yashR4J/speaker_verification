@@ -259,10 +259,11 @@ def dataio_prep(hparams):
 
     return datasets
 
-# Training it on our sample data
-if __name__ == "__main__":
-
+def trainModel(token):
     # Reading command line arguments.
+    # hparams_file, run_opts, overrides = sb.parse_arguments(sys.argv[1:])
+
+    # hparams_file, run_opts, overrides = sb.parse_arguments(['custom_train.yaml', '--device=cpu'])
     hparams_file, run_opts, overrides = sb.parse_arguments(sys.argv[1:])
 
     # Initialize ddp (useful only for multi-GPU DDP training).
@@ -287,6 +288,7 @@ if __name__ == "__main__":
             "save_json_train": hparams["train_annotation"],
             "save_json_valid": hparams["valid_annotation"],
             "save_json_test": hparams["test_annotation"],
+            "user": token,
             "split_ratio": [80, 10, 10],
         },
     )
@@ -330,3 +332,7 @@ if __name__ == "__main__":
     )
 
 
+
+# Training it on our sample data
+if __name__ == "__main__":
+    trainModel("Damian")

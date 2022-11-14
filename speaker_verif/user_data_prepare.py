@@ -24,6 +24,7 @@ def prepare_user_data(
     save_json_train,
     save_json_valid,
     save_json_test,
+    user,
     split_ratio=[80, 10, 10],
 ):
     """
@@ -57,7 +58,9 @@ def prepare_user_data(
     #     return
 
     # If the dataset doesn't exist yet, download it
+    # train_folder = os.path.join(data_folder, "raw/" +user +"/"+user +"-batchno-1")
     train_folder = os.path.join(data_folder, "user_data")
+    print(train_folder)
     if not check_folders(train_folder):
         print("No user data found!")
         exit(1)
@@ -94,6 +97,7 @@ def create_json(wav_list, json_file):
     for wav_file in wav_list:
 
         # Reading the signal (to retrieve duration in seconds)
+        print(wav_file)
         signal = read_audio(wav_file)
         duration = signal.shape[0] / SAMPLERATE
 

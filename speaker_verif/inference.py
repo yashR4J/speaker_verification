@@ -60,14 +60,14 @@ def verify(s1, s2):
 
 test_emb = extract_audio_embeddings(classifier, test_signal_path)
 
-spk_samples = glob.glob(f"data/user_data/raw/{spk_id}/*/*.wav")
-shuffle(spk_samples)
-for sample_path in spk_samples[:5]: # test on up to 5 random samples
-    print(f"Testing sample against {sample_path}")
-    sample_emb = extract_audio_embeddings(classifier, sample_path)
-    if verify(test_emb, sample_emb):
-        print("User Verified")
-        exit(0)
-
-print("Suspicious User - Access Denied")
+def verifySpeaker(speaker):
+    spk_samples = glob.glob(f"data/user_data/raw/{speaker}/*/*.wav")
+    shuffle(spk_samples)
+    for sample_path in spk_samples[:5]: # test on up to 5 random samples
+        print(f"Testing sample against {sample_path}")
+        sample_emb = extract_audio_embeddings(classifier, sample_path)
+        if verify(test_emb, sample_emb):
+            print("User Verified")
+            return True
+    return False
 
