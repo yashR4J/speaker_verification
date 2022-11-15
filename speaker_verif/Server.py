@@ -57,7 +57,13 @@ def train():
 @APP.route("/verify", methods=['POST'])
 def verify():
     token = request.headers.get('Authorization')
-    result = verifySpeaker(token)
+    files = request.files
+    file = files.get('file')
+    
+    path = 'data/verify/' + file.filename
+    file.save(path)
+
+    result = verifySpeaker(token,path)
     
     response = jsonify("File received and saved!")
     response.headers.add('Access-Control-Allow-Origin', '*')

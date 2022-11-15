@@ -1,7 +1,7 @@
 {
-  "pls6": {
-    "wav": "{data_root}\\user_data\\raw\\Damian\\Damian-batchno-1\\pls6.wav",
+  "pls1": {
+    "wav": "{data_root}\\user_data\\raw\\Damian\\Damian-batchno-1\\pls1.wav",
     "length": 35.84,
-    "spk_id": "pls6"
+    "spk_id": "pls1"
   }
 }
