@@ -8,7 +8,7 @@ There are seven files here:
 
 * `custom_train.py`: adapted code from speech brain for training process on pretrained model.
 * `custom_train.yaml`: another hyperparameters file, this time for the transfer learning, sets all parameters of execution.
-* `custom_model.py`: A file containing the definition of a PyTorch module (neural network model).
+* `model.py`: A file containing the definition of a PyTorch module (neural network model).
 * `user_data_prepare.py`: Prepares raw data gathered from user.
 
 and three json files (after training is completed):
