@@ -55,8 +55,8 @@ left_frames: 0
 right_frames: 0
 deltas: False
 
-out_n_neurons: 100 # maximum number of speakers
-emb_dim: 192 # dimensionality of the embeddings
+out_n_neurons: 10 # number of enrolled speakers
+emb_dim: 192      # dimensionality of the embeddings
 dataloader_options:
     batch_size: !ref <batch_size>
 
