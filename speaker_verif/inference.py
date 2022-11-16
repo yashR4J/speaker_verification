@@ -48,7 +48,7 @@ def extract_audio_embeddings(model, wav_audio_file_path: str) -> tuple:
     """Feature extractor that embeds audio into a vector."""
     signal, _ = load_signal(wav_audio_file_path)  # Reformat audio signal into a tensor
     output_probs, score, index, text_lab = model.classify_batch(signal)
-    print("Possible user_ids", text_lab)
+    print("Possible user_ids", score, text_lab)
     embeddings = model.encode_batch(
         signal
     )  # Pass tensor through pretrained neural net and extract representation
@@ -64,7 +64,8 @@ def verify(s1, s2):
 test_emb, possible_ids = extract_audio_embeddings(classifier, test_signal_path)
 
 if spk_id in possible_ids: 
-    return True
+    print("User Verified")
+    exit(0)
 
 spk_samples = glob.glob(f"data/user_data/raw/{spk_id}/*/*.wav")
 shuffle(spk_samples)
