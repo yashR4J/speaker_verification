@@ -27,9 +27,9 @@ dest_path = "content/best_model/"           # Path to store most recently traine
 #     shutil.copy2(file, dest_path)
 
 # Debug Quick Test Data
-file1 = './data/LibriSpeech/train-clean-5/19/198/19-198-0000.flac'
-file2 = './data/LibriSpeech/train-clean-5/32/21631/32-21631-0003.flac'
-file3 = './data/LibriSpeech/train-clean-5/19/198/19-198-0002.flac'
+file1 = './data/user_data/raw/19/198/19-198-0000.flac'
+file2 = './data/user_data/raw/3947/13262/3947-13262-0002.flac'
+file3 = './data/user_data/raw/19/198/19-198-0002.flac'
 sample = './data/sample.wav'
 me = './data/user_data/raw/5317349/1/5317349-0002.wav'
 me2 = './data/user_data/raw/5317349/1/5317349-0007.wav'
