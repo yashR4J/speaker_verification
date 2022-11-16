@@ -17,6 +17,7 @@ dest_path = "content/best_model/"           # Path to store most recently traine
 # os.mkdir(dest_path)
 # shutil.copy2("./hparams_inference.yaml", dest_path)
 # shutil.copy2(src_path + "label_encoder.txt", dest_path)
+# os.rename(dest_path + "label_encoder.txt", dest_path + "label_encoder.ckpt")
 # ckpt_files = glob.glob(src_path + "CKPT*")
 # if not ckpt_files:
 #     print("No trained checkpoints")
@@ -46,10 +47,12 @@ similarity = CosineSimilarity(dim=-1, eps=1e-8) # dim=-1 refers to the last dime
 def extract_audio_embeddings(model, wav_audio_file_path: str) -> tuple:
     """Feature extractor that embeds audio into a vector."""
     signal, _ = load_signal(wav_audio_file_path)  # Reformat audio signal into a tensor
+    output_probs, score, index, text_lab = model.classify_batch(signal)
+    print("Possible user_ids", text_lab)
     embeddings = model.encode_batch(
         signal
     )  # Pass tensor through pretrained neural net and extract representation
-    return embeddings
+    return embeddings, text_lab
 
 def verify(s1, s2):
     global similarity
@@ -58,7 +61,10 @@ def verify(s1, s2):
         if s > 0.25: return True
     return False
 
-test_emb = extract_audio_embeddings(classifier, test_signal_path)
+test_emb, possible_ids = extract_audio_embeddings(classifier, test_signal_path)
+
+if spk_id in possible_ids: 
+    return True
 
 spk_samples = glob.glob(f"data/user_data/raw/{spk_id}/*/*.wav")
 shuffle(spk_samples)

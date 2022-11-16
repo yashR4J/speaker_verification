@@ -46,8 +46,8 @@ ckpt_interval_minutes: 15 # save checkpoint every N min
 lr: 0.001
 lr_final: 0.0001
 sample_rate: 16000
-number_of_epochs: 40
-batch_size: 32
+number_of_epochs: 30
+batch_size: 8
 
 # Feature parameters
 n_mels: 80

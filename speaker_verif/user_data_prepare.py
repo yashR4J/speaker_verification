@@ -66,8 +66,8 @@ def prepare_user_data(
     logger.info(
         f"Creating {save_json_train}, {save_json_valid}, and {save_json_test}"
     )
-    extension = [".wav"]
-    wav_list = get_all_files(train_folder, match_and=extension)
+    extension = [".wav", ".flac"]
+    wav_list = get_all_files(train_folder, match_or=extension)
 
     # Random split the signal list into train, valid, and test sets.
     data_split = split_sets(wav_list, split_ratio)

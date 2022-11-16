@@ -61,6 +61,8 @@ pretrainer: !new:speechbrain.utils.parameter_transfer.Pretrainer
     loadables:
         embedding_model: !ref <embedding_model>
         classifier: !ref <classifier>
+        label_encoder: !ref <label_encoder>
     paths:
         embedding_model: !ref <pretrained_path>/embedding_model.ckpt
         classifier: !ref <pretrained_path>/classifier.ckpt
+        label_encoder: !ref <pretrained_path>/label_encoder.ckpt

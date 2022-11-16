@@ -38,7 +38,7 @@ def ckpt_metrics(ckpt):
 def plot(training_loss, validation_loss):
     plt.plot(range(1,len(training_loss)+1), training_loss, 'g', label='Training loss')
     plt.plot(range(1,len(validation_loss)+1), validation_loss, 'b', label='validation loss')
-    plt.title('Training and Validation loss')
+    plt.title('Transfer Learning')
     plt.xlabel('Epochs')
     plt.ylabel('Loss')
     plt.legend()
