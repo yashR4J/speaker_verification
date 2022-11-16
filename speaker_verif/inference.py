@@ -47,8 +47,11 @@ similarity = CosineSimilarity(dim=-1, eps=1e-8) # dim=-1 refers to the last dime
 def extract_audio_embeddings(model, wav_audio_file_path: str) -> tuple:
     """Feature extractor that embeds audio into a vector."""
     signal, _ = load_signal(wav_audio_file_path)  # Reformat audio signal into a tensor
-    output_probs, score, index, text_lab = model.classify_batch(signal)
-    print("Possible user_ids", score, text_lab)
+    try:
+        output_probs, score, index, text_lab = model.classify_batch(signal)
+        print("Possible user_ids", score, text_lab)
+    except KeyError:
+        text_lab = []
     embeddings = model.encode_batch(
         signal
     )  # Pass tensor through pretrained neural net and extract representation
