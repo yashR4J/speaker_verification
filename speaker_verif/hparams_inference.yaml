@@ -11,7 +11,7 @@ pretrained_path: /content/best_model/
 
 # Model parameters
 sample_rate: 16000
-out_n_neurons: 100 
+out_n_neurons: 10
 emb_dim: 192 # dimensionality of the embeddings
 
 # Feature parameters
