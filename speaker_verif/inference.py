@@ -74,7 +74,7 @@ spk_samples = glob.glob(f"data/user_data/raw/{spk_id}/*/*.wav")
 shuffle(spk_samples)
 for sample_path in spk_samples[:5]: # test on up to 5 random samples
     print(f"Testing sample against {sample_path}")
-    sample_emb = extract_audio_embeddings(classifier, sample_path)
+    sample_emb, _ = extract_audio_embeddings(classifier, sample_path)
     if verify(test_emb, sample_emb):
         print("User Verified")
         exit(0)
