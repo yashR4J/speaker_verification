@@ -24,7 +24,6 @@ python custom_train.py custom_train.yaml
 ```
 (Try each command with ```--device='cpu'``` if it does not work)
 
-This will automatically download and prepare the data manifest for mini
-librispeech, and then train a model with dynamically augmented samples.
+This will automatically download and prepare the data manifest for user data, and then train a model with dynamically augmented samples.
 
 
