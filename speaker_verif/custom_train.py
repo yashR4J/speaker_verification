@@ -263,8 +263,8 @@ def trainModel(token):
     # Reading command line arguments.
     # hparams_file, run_opts, overrides = sb.parse_arguments(sys.argv[1:])
 
-    # hparams_file, run_opts, overrides = sb.parse_arguments(['custom_train.yaml', '--device=cpu'])
-    hparams_file, run_opts, overrides = sb.parse_arguments(sys.argv[1:])
+    hparams_file, run_opts, overrides = sb.parse_arguments(['custom_train.yaml', '--device=cpu'])
+    # hparams_file, run_opts, overrides = sb.parse_arguments(sys.argv[1:])
 
     # Initialize ddp (useful only for multi-GPU DDP training).
     sb.utils.distributed.ddp_init_group(run_opts)

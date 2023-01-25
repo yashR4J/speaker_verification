@@ -10,13 +10,13 @@ let phraseIndex = 0;
 
 let recording = null;
 
-function train (recording) {
+function addSample (recording) {
   let data = new FormData();
-  data.append('file', new File([recording], recordingsCount + ".wav"));
+  data.append('file', new File([recording] , recordingsCount +'.wav'));
 
   let post = data;
  
-  const url = "http://localhost:5050/train"
+  const url = "http://localhost:5050/addSample"
   let xhr = new XMLHttpRequest()
   
   xhr.open('POST', url, true);
@@ -31,25 +31,6 @@ function train (recording) {
 
 }
 
-// function train (recording) {
-//   let data = new FormData();
-//   data.append('file', new File([recording], recordingsCount + ".wav"));
-//   const options = {
-//     method: 'POST',
-//     // mode: 'cors', // no-cors, *cors, same-origin
-//     headers : {
-//       'Authorization': token,
-//       // "Content-Type": data.contentType,
-//     },
-//     // files: recording,
-//     body: data
-//   };
-//   fetch("http://localhost:5050/train", options).then((data) => {
-//     if (data.error) {
-//       error(data.error);
-//     }
-//   });
-// }
 
 function registerUser () {
   const options = {
@@ -89,6 +70,81 @@ function registerUser () {
 }
 
 
+function verify (audio) {
+  
+
+  let data = new FormData();
+  data.append('file', new File([audio] , 'testAudio.wav'));
+
+  const options = {
+    method: 'POST',
+    mode: 'cors', // no-cors, *cors, same-origin
+    body:data, 
+    headers : {
+      'Authorization': user,
+    }
+  };  
+  // document.getElementById('start_recordingv').classList.remove('hide');
+  document.getElementById('stop_recordingv').classList.add('hide');
+  document.getElementById('spinner').classList.remove('hide');
+
+  
+  fetch("http://localhost:5050/verify", options).then((response) => {
+    return response.json();
+  }).then((data) => {
+    if (data.error) {
+      error(data.error);
+    }
+    else {
+      console.log(data.result)
+      setTimeout(()=> {
+        document.getElementById("verifybox").classList.add("hide");
+        document.getElementById("welcome").classList.remove("hide");
+        
+        if (data.result === 'true') {
+          
+          console.log("Accepted");
+          document.getElementById("welcomeMsg").innerText = "Welcome Damian. It is nice to see you. I hope you are doing well"
+          document.getElementById("face").src = "smiley.png";
+          read("Welcome Damian. It is nice to see you. I hope you are doing well") 
+
+
+        }
+        else {
+          console.log("Denied");
+          document.getElementById("welcomeMsg").innerText = "Vanet doesn't not know you"
+          document.getElementById("face").src = "frowny.png";
+
+          read("I do not know you")
+        }
+      },6000);
+      
+    }
+  });
+}
+
+
+function train () {
+    const options = {
+    method: 'POST',
+    // mode: 'cors', // no-cors, *cors, same-origin
+    headers : {
+      'Authorization': token,
+      // "Content-Type": data.contentType,
+    }
+    // files: recording,
+  };
+  fetch("http://localhost:5050/train", options).then((data) => {
+    if (data.error) {
+      error(data.error);
+    }
+  });
+}
+
+document.getElementById("submit_training").addEventListener('click',()=> {
+  train()
+})
+
 const download = async(blob, filename) => {
   let link = document.createElement('a');
   link.download = filename;
@@ -102,10 +158,8 @@ const download = async(blob, filename) => {
 }
 
 function inputHandler(){
-  console.log("kjansdknasjkdn")
   if (document.getElementById('userName').value == '') {
     document.getElementById('select_name').classList.add('inactive');
-    console.log("kjansdknasjkdn")
     document.getElementById('select_name').disabled = true;
   } 
   else {
@@ -185,94 +239,82 @@ function nextPhrase ()  {
 // Access the permission for use
 // the microphone
 navigator.mediaDevices.getUserMedia(audioIN)
-  // 'then()' method returns a Promise
-  .then(function (mediaStreamObj) {
-    //For Verification
+// 'then()' method returns a Promise
+.then(function (mediaStreamObj) {
+  //For Verification
 
 
-    // For recording segments
+  // For recording segments
 
-    // 2nd audio tag for play the audio
-    let playAudio = document.getElementById('audioPlay');
+  // 2nd audio tag for play the audio
+  let playAudio = document.getElementById('audioPlay');
 
-    // This is the main thing to recorded
-    // the audio 'MediaRecorder' API
-    let mediaRecorder = new MediaRecorder(mediaStreamObj);
-    // Pass the audio stream
+  // This is the main thing to recorded
+  // the audio 'MediaRecorder' API
+  let mediaRecorder = new MediaRecorder(mediaStreamObj);
+  // Pass the audio stream
 
-    // Start event
+  // Start event
 
-    document.getElementById("start_recording").addEventListener('click', () => {
-        document.getElementById('stop_recording').classList.remove('hide');
-        document.getElementById('start_recording').classList.add('hide');
-        mediaRecorder.start();
-    });
-    
-    document.getElementById("stop_recording").addEventListener('click', () => {
-        document.getElementById('start_recording').classList.remove('hide');
-        document.getElementById('stop_recording').classList.add('hide');
-        document.getElementById('next_button').classList.remove('inactive');
-        document.getElementById('next_button').disabled = false;
-        mediaRecorder.stop();
-    });
-
-
-    document.getElementById("start_recordingv").addEventListener('click', () => {
-      console.log("AYYYYYYYLMAO");
-      document.getElementById('stop_recordingv').classList.remove('hide');
-      document.getElementById('start_recordingv').classList.add('hide');
+  document.getElementById("start_recording").addEventListener('click', () => {
+      document.getElementById('stop_recording').classList.remove('hide');
+      document.getElementById('start_recording').classList.add('hide');
       mediaRecorder.start();
   });
   
-  document.getElementById("stop_recordingv").addEventListener('click', () => {
-      
-      // document.getElementById('next_button').classList.remove('inactive');
-      // document.getElementById('next_button').disabled = false;
+  document.getElementById("stop_recording").addEventListener('click', () => {
+      document.getElementById('start_recording').classList.remove('hide');
+      document.getElementById('stop_recording').classList.add('hide');
+      document.getElementById('next_button').classList.remove('inactive');
+      document.getElementById('next_button').disabled = false;
       mediaRecorder.stop();
-
-
   });
 
-    // If audio data available then push
-    // it to the chunk array
-    mediaRecorder.ondataavailable = function (ev) {
-      dataArray.push(ev.data);
+
+  document.getElementById("start_recordingv").addEventListener('click', () => {
+    console.log("AYYYYYYYLMAO");
+    document.getElementById('stop_recordingv').classList.remove('hide');
+    document.getElementById('start_recordingv').classList.add('hide');
+    mediaRecorder.start();
+  });
+  
+  document.getElementById("stop_recordingv").addEventListener('click', () => {
+    mediaRecorder.stop();
+  });
+
+  // If audio data available then push
+  // it to the chunk array
+  mediaRecorder.ondataavailable = function (ev) {
+    dataArray.push(ev.data);
+  }
+
+  // Chunk array to store the audio data
+  let dataArray = [];
+
+  // Convert the audio data in to blob
+  // after stopping the recording
+  mediaRecorder.onstop = function (ev) {
+    // blob of type mp3
+    let audioData = new Blob(dataArray,
+              { 'type': 'audio/wav; codecs=MS_PCM' });
+      
+    // After fill up the chunk
+    // array make it empty
+    dataArray = [];
+
+    // Creating audio url with reference
+    // of created blob named 'audioData'
+    let audioSrc = window.URL.createObjectURL(audioData);
+
+    if (document.getElementById("verifybox").classList.contains("hide")) {
+      recording =audioData;
+      // recordings.push(audioSrc);
+      // recordings.push(new File([audioSrc], recordings.length + ".wav"));
     }
-
-    // Chunk array to store the audio data
-    let dataArray = [];
-
-    // Convert the audio data in to blob
-    // after stopping the recording
-    mediaRecorder.onstop = function (ev) {
-
-      console.log("yyasbdua");
-      // blob of type mp3
-      let audioData = new Blob(dataArray,
-                { 'type': 'audio/wav; codecs=MS_PCM' });
-       
-      // After fill up the chunk
-      // array make it empty
-      dataArray = [];
-
-      // Creating audio url with reference
-      // of created blob named 'audioData'
-      let audioSrc = window.URL
-          .createObjectURL(audioData);
-
-      if (document.getElementById("verifybox").classList.contains("hide")) {
-        recording =audioData;
-        // recordings.push(audioSrc);
-        // recordings.push(new File([audioSrc], recordings.length + ".wav"));
-      }
-      else {
-        console.log("Otto accepts");
-        document.getElementById("verifybox").classList.add("hide");
-        document.getElementById("welcome").classList.remove("hide");
-        document.getElementById('start_recordingv').classList.remove('hide');
-        document.getElementById('stop_recordingv').classList.add('hide');
-        read("Welcome Master Damian. It is nice to see you. You look very handsome today <3") 
-      }
+    else {
+      verify(audioData);
+    }
+  
       // Pass the audio url to the 2nd video tag
       playAudio.src = audioSrc;
     }
@@ -282,7 +324,7 @@ navigator.mediaDevices.getUserMedia(audioIN)
     console.log(err.name, err.message);
   });
 
-/*
+
 
 function getVoices() {
   let voices = speechSynthesis.getVoices();
@@ -317,13 +359,7 @@ let rate = 1, pitch = 1.3, volume = 1;
 let text = "Spaecking with volume = 1 rate =1 pitch =2 ";
 
 if ('speechSynthesis' in window) {
-  read("Welcome. My name is Vanet. Say Hello Vanet to sign in.")
-  setTimeout(()=> {
-    document.getElementById("start_recordingv").click();
-  },6000)
-  setTimeout(()=> {
-    document.getElementById("stop_recordingv").click();
-  },8500);
+  read("Welcome. My name is Vanet. Verify your voice to sign in.")
 }else{
   console.log(' Speech Synthesis Not Supported 😞'); 
 }
@@ -336,7 +372,7 @@ function read (text) {
   }, 1000);
 }
 
- */
+ 
 let token = null;
 
 document.getElementById("register-new-user").addEventListener("click", () => {
@@ -365,7 +401,7 @@ document.getElementById("backToMenu").addEventListener("click", () => {
 });
 
 document.getElementById("next_button").addEventListener("click", (e) => {
-  train(recording);
+  addSample(recording);
   nextPhrase();
   // e.preventDefault()
 });

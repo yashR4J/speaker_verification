@@ -32,8 +32,7 @@ def register():
     if (os.path.exists(os.path.join(os.path.join(dataFolder, user), user+'-batchno-1'))):
         count = len(os.listdir(os.path.join(os.path.join(dataFolder, user), user+'-batchno-1')))
     else:
-        parent_dir = "data/raw"
-        path = os.path.join(parent_dir, user)
+        path = os.path.join(dataFolder, user)
         # for some reason making directory causes a page reload on the 
         # fetch request????
         os.mkdir(path)
@@ -63,8 +62,9 @@ def verify():
     path = 'data/verify/' + file.filename
     file.save(path)
 
-    result = verifySpeaker(token,path)
-    
+    # result = verifySpeaker(token,path)
+    result=token
+    print(token)
     response = jsonify("File received and saved!")
     response.headers.add('Access-Control-Allow-Origin', '*')
 

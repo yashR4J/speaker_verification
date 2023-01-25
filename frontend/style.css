@@ -9,15 +9,38 @@ html,body{
 h1 {
     color: white !important;
     text-align: center;
+    vertical-align: middle;
+    display: flex;
+    justify-content: space-around;
+    font-size: 22pt !important;
+    padding-top: 4%;
+}
+
+#face {
+    width: 30%;
 }
 
 .hide {
     display : none !important;
 }
 
-
+.spinner-border{
+    width: 80px !important;
+    height: 80px !important;
+}
 .rec {
     font-size: 60pt;    
+}
+
+h2{
+    font-size: 20pt !important;
+    margin-bottom: 3% !important;
+    margin-top: 1% !important;
+}
+
+h3{
+    font-size: 16pt !important;
+    margin-bottom: 2% !important;
 }
 
 
@@ -75,7 +98,7 @@ h1 {
 }
 
 button {
-    font-size: 20pt;
+    font-size: 16pt !important;
     margin: 2% !important;
     padding: 1% 2% 1% 2%;
     border: 0;

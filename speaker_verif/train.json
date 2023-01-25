@@ -1,23 +1,23 @@
 {
-  "pls10": {
-    "wav": "{data_root}\\user_data\\raw\\Damian\\Damian-batchno-1\\pls10.wav",
+  "pls9": {
+    "wav": "{data_root}\\user_data\\raw\\Damian\\Damian-batchno-1\\pls9.wav",
     "length": 35.84,
-    "spk_id": "pls10"
+    "spk_id": "pls9"
   },
   "pls7": {
     "wav": "{data_root}\\user_data\\raw\\Damian\\Damian-batchno-1\\pls7.wav",
     "length": 35.84,
     "spk_id": "pls7"
   },
-  "pls6": {
-    "wav": "{data_root}\\user_data\\raw\\Damian\\Damian-batchno-1\\pls6.wav",
+  "pls10": {
+    "wav": "{data_root}\\user_data\\raw\\Damian\\Damian-batchno-1\\pls10.wav",
     "length": 35.84,
-    "spk_id": "pls6"
+    "spk_id": "pls10"
   },
-  "pls8": {
-    "wav": "{data_root}\\user_data\\raw\\Damian\\Damian-batchno-1\\pls8.wav",
+  "pls1": {
+    "wav": "{data_root}\\user_data\\raw\\Damian\\Damian-batchno-1\\pls1.wav",
     "length": 35.84,
-    "spk_id": "pls8"
+    "spk_id": "pls1"
   },
   "pls5": {
     "wav": "{data_root}\\user_data\\raw\\Damian\\Damian-batchno-1\\pls5.wav",
@@ -34,9 +34,9 @@
     "length": 35.84,
     "spk_id": "pls"
   },
-  "pls9": {
-    "wav": "{data_root}\\user_data\\raw\\Damian\\Damian-batchno-1\\pls9.wav",
+  "pls4": {
+    "wav": "{data_root}\\user_data\\raw\\Damian\\Damian-batchno-1\\pls4.wav",
     "length": 35.84,
-    "spk_id": "pls9"
+    "spk_id": "pls4"
   }
 }
